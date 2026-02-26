@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👥 CropCare Community</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #4CAF50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        main {
+            padding: 2rem;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        textarea,
+        input,
+        button {
+            width: 100%;
+            padding: 0.6rem;
+            margin: 0.6rem 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #43a047;
+        }
+
+        .post {
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            border-left: 4px solid #4CAF50;
+            background: #fafafa;
+        }
+
+        .post small {
+            color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <header>👥 CropCare Community</header>
+    <main>
+        <div class="card">
+            <h2>📝 Share Your Experience</h2>
+            <form method="POST">
+                <input type="text" name="disease" placeholder="Disease name" required>
+                <textarea name="notes" placeholder="Share your treatment experience..." required></textarea>
+                <button type="submit">📤 Post</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>📚 Community Posts</h2>
+            {% for d, notes, created_at in posts %}
+            <div class="post">
+                <b>{{ d }}</b> <br>
+                {{ notes }} <br>
+                <small>Posted at {{ created_at }}</small>
+            </div>
+            {% endfor %}
+        </div>
+        <a href="/" style="display:block; margin-top:1rem; text-align:center;">⬅️ Back to Home</a>
+    </main>
+</body>
+
+</html>

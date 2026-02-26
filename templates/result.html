@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CropCare - Results</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#f4f6f8; margin:0; padding:0; }
+    header { background:#4CAF50; color:white; padding:1rem; text-align:center; font-size:1.5rem; }
+    main { padding:2rem; max-width:1000px; margin:auto; }
+    .card { background:white; padding:1.5rem; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.1); margin-bottom:1.5rem; }
+    h2 { margin-top:0; color:#2e7d32; }
+    h3 { margin:0.5rem 0; color:#388e3c; }
+    .tabs button { padding:0.5rem 1rem; margin:0.3rem; border:none; border-radius:6px; cursor:pointer; background:#e0e0e0; }
+    .tabs button.active { background:#4CAF50; color:white; }
+    .tab-content { margin-top:1rem; display:none; }
+    .prediction { margin-bottom:1rem; }
+    .bar { background:#e0e0e0; border-radius:8px; overflow:hidden; height:22px; }
+    .bar-fill { background:#81c784; height:100%; text-align:right; padding-right:6px; line-height:22px; color:white; font-size:13px; transition:width 0.5s ease; }
+    .bar-fill.highlight { background:#2e7d32; font-weight:bold; }
+    .btn { display:inline-block; margin-top:1rem; background:#4CAF50; color:white; padding:0.7rem 1.2rem; text-decoration:none; border-radius:8px; }
+    .btn:hover { background:#43a047; }
+    ul { margin:0.5rem 0; padding-left:1.2rem; }
+    ul li { margin-bottom:0.3rem; }
+    footer { margin-top:2rem; font-size:0.9rem; color:gray; text-align:center; }
+    .wx-line { color:#111; }
+    .wx-muted { color:#6b7280; font-size:.95rem; }
+    .wx-okay { color:#166534; font-weight:700; }
+    .wx-warn { color:#b45309; font-weight:700; }
+
+    .points { list-style-type:"• "; line-height:1.6; }
+    .points li { margin:4px 0; }
+
+    /* tables */
+    table.simple { width:100%; border-collapse:collapse; border-radius:10px; overflow:hidden; }
+    table.simple th, table.simple td { padding:.65rem .75rem; border-bottom:1px solid #eee; vertical-align:top; }
+    table.simple thead th { background:#e8f5e9; color:#1b5e20; font-weight:700; }
+    table.simple tr:last-child td { border-bottom:none; }
+    .muted { color:#6b7280; }
+    .grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    @media (max-width: 800px){ .grid{ grid-template-columns:1fr; } }
+    .pill { display:inline-block; padding:.15rem .5rem; border-radius:999px; font-size:.85rem; background:#eef2ff; }
+  </style>
+  <script>
+    function showTab(tab) {
+      document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
+      document.getElementById(tab).style.display = 'block';
+      document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active'));
+      document.getElementById(tab + "Btn").classList.add('active');
+    }
+    window.onload = () => showTab('organic');
+  </script>
+</head>
+
+<body>
+  <header>CropCare - Detection Results</header>
+  <main>
+    <div class="card">
+      <h2>Uploaded Image</h2>
+      <img src="{{ url_for('static', filename='uploads/' + filename) }}" width="320" alt="Uploaded leaf">
+    </div>
+
+    <div class="card">
+      <h2>Prediction</h2>
+      <p><b>Disease:</b> {{ disease }}</p>
+
+      {% set max_prob = predictions|max(attribute=1) %}
+      {% for label, prob in predictions %}
+      <div class="prediction">
+        <div><b>{{ label }}</b></div>
+        <div class="bar">
+          <div class="bar-fill {% if prob == max_prob[1] %}highlight{% endif %}" style="width: {{ prob|round(2) }}%;">
+            {{ prob|round(1) }}%
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    {# -------- bullets helper (keeps medicines untouched) -------- #}
+    {% macro format_points(text) -%}
+      {% if text and text != 'No info' %}
+        {% set cleaned = text.replace('•', '\n•') %}
+        <ul class="points">
+        {% for line in cleaned.splitlines() if line.strip() %}
+          <li>{{ line.replace('•','').strip()|safe }}</li>
+        {% endfor %}
+        </ul>
+      {% else %}
+        <p>No info</p>
+      {% endif %}
+    {%- endmacro %}
+
+    <div class="card">
+      <h2>Treatment Information</h2>
+      <div class="tabs">
+        <button id="organicBtn"  onclick="showTab('organic')">🌱 Organic</button>
+        <button id="chemicalBtn" onclick="showTab('chemical')">💊 Chemical</button>
+        <button id="preventionBtn" onclick="showTab('prevention')">🛡 Prevention</button>
+        <button id="symptomsBtn"  onclick="showTab('symptoms')">⚠️ Symptoms</button>
+        <button id="climateBtn"   onclick="showTab('climate_risk')">🌦 Climate Risk</button>
+        <button id="fertilizerBtn"onclick="showTab('fertilizer')">🌾 Fertilizer</button>
+        <button id="notesBtn"     onclick="showTab('notes')">📝 Notes</button>
+      </div>
+
+      <div id="organic" class="tab-content">
+        <h3>Organic Treatment</h3>
+        {{ format_points(treatment.organic) }}
+
+        <h3>Suggested Organic Medicines</h3>
+        {% if treatment.organic_medicines %}
+        <ul>
+          {% for med in treatment.organic_medicines.replace(';', ',').split(',') %}
+            {% set parts = med.strip().split('(') %}
+            <li>
+              {% if parts|length > 1 %}
+                <a href="{{ parts[1][:-1] }}" target="_blank" rel="noopener">{{ parts[0].strip() }}</a>
+              {% else %}
+                {{ med.strip() }}
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+        {% else %}
+        <p>No info</p>
+        {% endif %}
+      </div>
+
+      <div id="chemical" class="tab-content">
+        <h3>Chemical Treatment</h3>
+        {{ format_points(treatment.chemical) }}
+
+        <h3>Suggested Chemical Medicines</h3>
+        {% if treatment.chemical_medicines %}
+        <ul>
+          {% for med in treatment.chemical_medicines.replace(';', ',').split(',') %}
+            {% set parts = med.strip().split('(') %}
+            <li>
+              {% if parts|length > 1 %}
+                <a href="{{ parts[1][:-1] }}" target="_blank" rel="noopener">{{ parts[0].strip() }}</a>
+              {% else %}
+                {{ med.strip() }}
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+        {% else %}
+        <p>No info</p>
+        {% endif %}
+      </div>
+
+      <div id="prevention" class="tab-content">
+        <h3>Prevention</h3>
+        {{ format_points(treatment.prevention) }}
+      </div>
+
+      <div id="symptoms" class="tab-content">
+        <h3>Symptoms</h3>
+        {{ format_points(treatment.symptoms) }}
+      </div>
+
+      <div id="climate_risk" class="tab-content">
+        <h3>Climate Risk</h3>
+        {{ format_points(treatment.climate_risk) }}
+      </div>
+
+      <div id="fertilizer" class="tab-content">
+        <h3>Fertilizer Guidelines</h3>
+        {{ format_points(treatment.fertilizer_guidelines) }}
+      </div>
+
+      <div id="notes" class="tab-content">
+        <h3>Additional Notes</h3>
+        {{ format_points(treatment.notes) }}
+      </div>
+    </div>
+
+    {% if gradcam_filename %}
+    <div class="card">
+      <h2>Model Focus Area (Grad-CAM)</h2>
+      <div class="grid">
+        <div>
+          <h4>Original</h4>
+          <img src="{{ url_for('static', filename='uploads/' + filename) }}" width="100%" style="max-width:360px;border-radius:8px;">
+        </div>
+        <div>
+          <h4>Heatmap</h4>
+          <img src="{{ url_for('static', filename='uploads/' + gradcam_filename) }}" width="100%" style="max-width:360px;border-radius:8px;">
+        </div>
+      </div>
+      <p class="muted" style="margin-top:6px">
+        <b>Color Guide:</b> 🔴 High model attention • 🟡 Moderate • 🔵 Low
+      </p>
+    </div>
+    {% endif %}
+
+<!-- ========= New: Treatment, Fertilizer & Growth Advice ========= -->
+    <div class="card">
+      <h2>Organic vs Chemical Comparison</h2>
+      <!-- a) Dosage Calculator -->
+      <!-- <h3>🔹 a. Dosage Calculator</h3>
+      <p class="muted">
+        <b>How to use:</b><br>
+        1) Enter your field size and select acre / hectare. <br>
+        2) Type the recommended dose from the label (for example “2 ml per litre”). <br>
+        3) Add your spray volume (how many litres of water you normally spray per acre or hectare). <br>
+        The tool will show the <b>total product</b> and <b>total water</b> needed for your field.
+      </p>
+
+      <div class="grid" style="align-items:end">
+        <div>
+          <label><b>Field Size</b></label><br/>
+          <input id="fldSize" type="number" min="0" step="0.01" placeholder="e.g., 1.0" style="padding:.6rem;border:1px solid #ccc;border-radius:8px;width:140px">
+          <select id="fldUnit" style="padding:.6rem;border:1px solid #ccc;border-radius:8px;">
+            <option value="acre">acre</option>
+            <option value="hectare">hectare</option>
+          </select>
+        </div>
+        <div>
+          <label><b>Recommended Rate (from label)</b></label><br/>
+          <input id="rate" type="number" min="0" step="0.01" placeholder="e.g., 2.5" style="padding:.6rem;border:1px solid #ccc;border-radius:8px;width:140px">
+          <select id="rateUnit" style="padding:.6rem;border:1px solid #ccc;border-radius:8px;">
+            <option value="ml_per_l">ml per litre (spray)</option>
+            <option value="g_per_l">g per litre (spray)</option>
+            <option value="l_per_ha">litre per hectare</option>
+            <option value="kg_per_ha">kg per hectare</option>
+          </select>
+        </div>
+        <div>
+          <label><b>Spray Volume</b></label><br/>
+          <input id="sprayVol" type="number" min="0" step="1" placeholder="Litres/acre or /hectare" style="padding:.6rem;border:1px solid #ccc;border-radius:8px;width:220px">
+          <div class="muted" style="margin-top:4px">
+            Common field spray: <b>150–250 L/acre</b> or <b>500–700 L/ha</b>.
+          </div>
+        </div>
+      </div>
+
+      <div id="doseOut" class="pill" style="margin-top:10px">Enter values to see total dose…</div>
+      <script>
+        (function(){
+          const $ = id => document.getElementById(id);
+          const inputs = ['fldSize','fldUnit','rate','rateUnit','sprayVol'].map($);
+          inputs.forEach(el => el.addEventListener('input', calc));
+          inputs.forEach(el => el.addEventListener('change', calc));
+
+          function calc(){
+            const size = parseFloat($('fldSize').value||0);
+            const unit = $('fldUnit').value;
+            const rate = parseFloat($('rate').value||0);
+            const rateUnit = $('rateUnit').value;
+            const vol = parseFloat($('sprayVol').value||0);
+            if(!size || !rate){
+              $('doseOut').textContent='Enter values to see total dose…';
+              return;
+            }
+
+            // area in hectares and acres
+            const area_ha   = unit === 'hectare' ? size : size * 0.4046856422;
+            const area_acre = unit === 'acre'    ? size : size / 0.4046856422;
+
+            let text = '';
+            if(rateUnit === 'ml_per_l' || rateUnit === 'g_per_l'){
+              if(!vol){
+                $('doseOut').textContent='Add spray volume (L/acre or L/ha) to calculate mix.';
+                return;
+              }
+              const vol_total = vol * (unit==='acre' ? area_acre : area_ha / 0.4046856422); // litres
+              const qty = rate * vol_total; // ml or g
+              const u = rateUnit === 'ml_per_l' ? 'ml' : 'g';
+              text = `Mix <b>${qty.toFixed(0)} ${u}</b> of product in <b>${vol_total.toFixed(0)} L</b> of water for the entered area.`;
+            } else if(rateUnit === 'l_per_ha'){
+              const qty = rate * area_ha;
+              text = `Use <b>${qty.toFixed(2)} L</b> product for <b>${area_ha.toFixed(2)} ha</b> of field.`;
+            } else if(rateUnit === 'kg_per_ha'){
+              const qty = rate * area_ha;
+              text = `Use <b>${qty.toFixed(2)} kg</b> product for <b>${area_ha.toFixed(2)} ha</b> of field.`;
+            }
+            $('doseOut').innerHTML = text;
+          }
+        })();
+      </script> -->
+
+      <!-- b) Organic vs Chemical Comparison -->
+      <h3 style="margin-top:16px">Organic vs Chemical Comparison</h3>
+      <!-- <p class="muted">
+        Quick view to decide which option fits today.  
+        Organic is usually <b>safer and good for prevention</b>.  
+        Chemical is usually <b>stronger and fast for serious attack</b>, but needs more care.
+      </p> -->
+      <table class="simple">
+        <thead><tr><th>Criteria</th><th>Organic</th><th>Chemical</th></tr></thead>
+        <tbody>
+          <tr><td>Cost</td>     <td>₹ (usually cheaper over time)</td>      <td>₹₹₹ (often higher per spray)</td></tr>
+          <tr><td>Safety</td>   <td>Safer for applicator & soil</td><td>PPE required; residue risk</td></tr>
+          <tr><td>Onset</td>    <td>Medium (works slowly)</td> <td>Fast (quick knock-down)</td></tr>
+          <tr><td>Resistance</td><td>Low risk of resistance</td><td>Higher risk if same FRAC group is used repeatedly</td></tr>
+          <tr><td>Best Use</td> <td>Preventive / early stage of disease</td><td>Heavy outbreak / curative sprays</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- ============================================================= -->
+
+    <!-- 🌦 Weather -->
+    <div class="card">
+      <h2 id="wxHeading">Weather</h2>
+      <div id="wxStatus" class="wx-muted">Fetching weather…</div>
+      <div id="wxNow" class="wx-line" style="margin-top:8px; display:none;"></div>
+      <div id="wxAdvice" style="margin-top:6px;"></div>
+    </div>
+
+    <a href="/" class="btn">New Detection</a>
+
+    <footer>
+      {% if treatment.source == "wikipedia" %}
+      📖 Source: Wikipedia (auto-fallback due to missing DB/CSV entry)
+      {% else %}
+      ✅ Source: CropCare Treatments Database + Medicines
+      {% endif %}
+    </footer>
+  </main>
+
+  <script>
+    // Weather (OpenWeather)
+    (function(){
+      const serverCity = "{{ city|default('', true)|e }}";
+      const storageCity = (typeof sessionStorage !== 'undefined') ? (sessionStorage.getItem('cropai_city') || '') : '';
+      const city = (serverCity || storageCity || 'Delhi').trim();
+
+      const apiKey = "e2d34806bc2ef442218c4b0564187e73";
+      const wxHeading = document.getElementById('wxHeading');
+      const wxStatus  = document.getElementById('wxStatus');
+      const wxNow     = document.getElementById('wxNow');
+      const wxAdvice  = document.getElementById('wxAdvice');
+
+      wxHeading.textContent = `🌦 Weather in ${city}`;
+
+      async function run() {
+        try {
+          const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${apiKey}&units=metric`;
+          const r = await fetch(url);
+          if (!r.ok) throw new Error('fetch failed');
+          const j = await r.json();
+
+          const desc   = j.weather?.[0]?.description ?? '—';
+          const temp   = j.main?.temp;
+          const feels  = j.main?.feels_like;
+          const hum    = j.main?.humidity;
+          const wind   = j.wind?.speed;
+          const clouds = j.clouds?.all;
+          const sunrise = j.sys?.sunrise ? new Date(j.sys.sunrise*1000) : null;
+          const sunset  = j.sys?.sunset  ? new Date(j.sys.sunset*1000)  : null;
+          const tSunrise = sunrise ? sunrise.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'}) : '—';
+          const tSunset  = sunset  ? sunset.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'}) : '—';
+
+          wxNow.style.display = 'block';
+          wxNow.textContent = `🌡 ${temp ?? '—'}°C (feels ${feels ?? '—'}°C) • 💧 ${hum ?? '—'}% • 🌬 ${wind ?? '—'} m/s • ☁️ ${clouds ?? '—'}% • ${desc} • 🌅 ${tSunrise} • 🌇 ${tSunset}`;
+          wxStatus.textContent = "Updated just now";
+
+          const tips = [];
+          if (hum > 80) tips.push("⚠️ High humidity — possible fungal risk.");
+          if (wind > 10) tips.push("💨 Strong winds — protect young plants.");
+          if (temp > 35) tips.push("🔥 High temp — ensure irrigation.");
+          if (temp < 10) tips.push("❄️ Low temp — frost protection.");
+          if (!tips.length) tips.push("✅ Weather is favorable for crops today.");
+          wxAdvice.innerHTML = `<div class="${tips.length ? 'wx-warn' : 'wx-okay'}">${tips.join(' ')}</div>`;
+        } catch(e) {
+          wxStatus.textContent = "Weather unavailable right now.";
+          wxNow.style.display = 'none';
+          wxAdvice.textContent = "";
+        }
+      }
+      run();
+    })();
+  </script>
+</body>
+</html>

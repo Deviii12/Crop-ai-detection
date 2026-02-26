@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disease Solutions | CropCare</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0; padding: 0;
+      background: #f4f6f8;
+      color: #333;
+    }
+    header {
+      background: #4CAF50; color: #fff;
+      text-align: center; padding: 1rem;
+      font-size: 1.5rem; font-weight: 600;
+    }
+    main {
+      padding: 2rem;
+      overflow-x: auto;
+    }
+    table {
+      width: 100%; border-collapse: collapse;
+      background: #fff; border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    th, td {
+      padding: 0.8rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+      vertical-align: top;
+    }
+    th {
+      background: #e8f5e9;
+      color: #2e7d32;
+      font-weight: 600;
+    }
+    tr:hover { background: #f9f9f9; }
+    @media(max-width: 700px){
+      table, thead, tbody, th, td, tr {
+        display: block; width: 100%;
+      }
+      th { display: none; }
+      td {
+        border: none;
+        margin-bottom: 0.8rem;
+        padding: 0.6rem;
+      }
+      td:before {
+        content: attr(data-label);
+        font-weight: 600;
+        display: block;
+        color: #2e7d32;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>🌿 CropCare — Disease Solutions</header>
+  <main>
+    <table>
+      <thead>
+        <tr>
+          <th>Disease Name</th>
+          <th>Organic Treatment</th>
+          <th>Chemical Treatment</th>
+          <th>Prevention</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for d, org, chem, prev in rows %}
+        <tr>
+          <td data-label="Disease">{{ d }}</td>
+          <td data-label="Organic">{{ org }}</td>
+          <td data-label="Chemical">{{ chem }}</td>
+          <td data-label="Prevention">{{ prev }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>

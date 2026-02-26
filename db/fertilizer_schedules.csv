@@ -1,0 +1,70 @@
+crop,week,stage,npk_n,npk_p2o5,npk_k2o,notes
+apple,1,Basal before flowering,10,26,26,"Light basal dose around tree basin"
+apple,4,Vegetative flush,19,19,19,"Split in 2 applications, irrigate after"
+apple,8,Fruit set,12,32,16,"Support flowering and early fruit set"
+apple,12,Fruit development,13,0,45,"Higher potash for fruit size & colour"
+
+blueberry,1,Pre-season basal,8,24,24,"Apply in a ring around bushes"
+blueberry,4,Vegetative growth,16,16,16,"Low–salt balanced fertilizer"
+blueberry,7,Bud/flower stage,10,20,20,"Avoid heavy nitrogen"
+blueberry,10,Fruit filling,8,12,24,"Extra K for berry quality"
+
+"cherry (including sour)",1,Basal before bloom,10,26,26,"Light basal dose incorporated in soil"
+"cherry (including sour)",4,Shoot growth,18,18,18,"Apply away from trunk, near drip line"
+"cherry (including sour)",7,Flowering & fruit set,12,24,18,"Split in 2–3 small doses"
+"cherry (including sour)",10,Fruit development,8,12,24,"Improve fruit size and firmness"
+
+"corn (maize)",0,Basal at sowing,10,26,26,"Place below seed line, not touching seed"
+"corn (maize)",3,Early vegetative (3–4 leaf),30,0,0,"Urea side-dress between rows"
+"corn (maize)",6,Grand growth (knee-high),45,0,0,"Second N dose for rapid growth"
+"corn (maize)",9,Pre-tasseling,30,0,20,"Support cob filling"
+
+grape,1,Basal after pruning,12,32,16,"Mix well in basin and irrigate"
+grape,4,Shoot growth,19,19,19,"Balanced NPK for canopy build-up"
+grape,8,Flowering,10,25,25,"Avoid excess N at flowering"
+grape,12,Berry development,8,12,30,"Extra K for TSS and colour"
+
+orange,1,Basal at new flush,10,26,26,"Apply in circular band under canopy"
+orange,4,Vegetative flush,20,10,10,"Helps foliage growth"
+orange,8,Flower initiation,8,24,24,"More P & K before flowering"
+orange,12,Fruit enlargement,8,12,30,"Supports fruit size & peel strength"
+
+peach,1,Basal before bloom,10,26,26,"Incorporate around root zone"
+peach,4,Shoot growth,18,18,18,"Do not place too close to trunk"
+peach,7,Flowering & fruit set,10,20,20,"Split into 2 small applications"
+peach,10,Fruit development,8,12,24,"Higher K for better fruit quality"
+
+pepper,1,Basal before transplant,12,32,16,"Mix in beds before transplanting"
+pepper,3,Vegetative growth,19,19,19,"Apply along rows and irrigate"
+pepper,6,Flowering,12,24,18,"Reduce N slightly, increase P"
+pepper,9,Fruiting,10,12,30,"Extra K for fruit size and colour"
+
+potato,0,Basal at planting,10,26,26,"Place below and beside seed tubers"
+potato,3,Early vegetative,30,0,0,"Side-dress N when plants establish"
+potato,6,Tuber initiation,20,0,20,"Increase K at tuber start"
+potato,9,Bulking,10,0,30,"Focus on K to improve yield & size"
+
+raspberry,1,Basal before sprouting,8,24,24,"Apply around canes"
+raspberry,4,Vegetative growth,16,16,16,"Light balanced NPK"
+raspberry,7,Flowering,10,20,20,"Avoid heavy N to reduce lodging"
+raspberry,10,Fruit filling,8,12,24,"Extra K for firmness & colour"
+
+soybean,0,Basal at sowing,8,24,24,"Apply in bands, avoid seed contact"
+soybean,3,Early vegetative,20,0,0,"Small N starter if nodules weak"
+soybean,6,Flowering,0,16,16,"Focus on P & K, N from nodulation"
+soybean,9,Pod filling,0,12,24,"Supports seed size and oil content"
+
+squash,1,Basal before transplant,10,26,26,"Incorporate in beds"
+squash,3,Vine growth,19,19,19,"Side-dress along vines"
+squash,6,Flowering,12,24,18,"Moderate N, higher P"
+squash,9,Fruiting,10,12,30,"Extra K for fruit size and keeping quality"
+
+strawberry,1,Basal before planting,8,24,24,"Mix well in raised beds"
+strawberry,3,Runner/leaf growth,16,16,16,"Apply in small split doses"
+strawberry,6,Flowering,10,20,20,"Avoid heavy nitrogen"
+strawberry,9,Fruiting,8,12,24,"Extra K improves berry firmness"
+
+tomato,1,Basal before transplant,12,32,16,"Apply and mix in planting rows"
+tomato,3,Vegetative growth,19,19,19,"Side-dress near root zone"
+tomato,6,Flowering & fruit set,12,24,18,"Split into 2 applications a week apart"
+tomato,9,Fruiting & ripening,10,12,30,"Higher K for yield and fruit quality"

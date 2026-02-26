@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🌿 CropCare - Detect Plant Disease</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#f4f6f8; margin:0; padding:0; }
+    header { background:#4CAF50; color:white; padding:1rem; text-align:center; font-size:1.5rem; }
+    main { padding:2rem; display:flex; justify-content:center; }
+    form { background:white; padding:2rem; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.1); width:100%; max-width:420px; }
+    input, select, button { width:100%; padding:0.8rem; margin:0.6rem 0; border-radius:8px; border:1px solid #ccc; font-size:1rem; }
+    button { background:#4CAF50; color:white; border:none; cursor:pointer; font-weight:700; }
+    button:hover { background:#43a047; }
+    .btn-ghost { background:#fff; color:#333; border:1px solid #ccc; }
+    .row { display:flex; gap:10px; }
+    .row > * { flex:1; }
+    small { color:gray; display:block; margin-top:-0.25rem; margin-bottom:0.8rem; }
+    .fileinfo { color:#333; font-size:0.9rem; margin-bottom:0.6rem; }
+    .preview img { width:100%; border-radius:8px; margin-top:0.5rem; border:1px solid #ddd; }
+  </style>
+</head>
+<body>
+  <header>🌿 CropCare - Detect Plant Disease</header>
+
+  <main>
+    <form id="detectForm" method="POST" enctype="multipart/form-data">
+      <label>📷 Leaf Image:</label>
+
+      <!-- Hidden master input (used by backend) -->
+      <input id="leaf" name="leaf" type="file" accept="image/*" required style="display:none">
+
+      <!-- Two clean buttons -->
+      <div class="row">
+        <button type="button" class="btn-ghost" id="cameraBtn">📸 Take Photo</button>
+        <button type="button" class="btn-ghost" id="libraryBtn">🖼️ Choose from Library</button>
+      </div>
+      <small>Use your camera or select a photo from gallery/files.</small>
+
+      <!-- Hidden pickers -->
+      <input id="cameraPicker" type="file" accept="image/*" capture="environment" style="display:none">
+      <input id="libraryPicker" type="file" accept="image/*" style="display:none">
+
+      <div id="fileInfo" class="fileinfo"></div>
+      <div class="preview" id="preview" style="display:none;">
+        <img id="previewImg" alt="Preview">
+      </div>
+
+      <!-- 🏙 City selector -->
+      <label>🏙 Select City (auto-detects if possible):</label>
+      <select id="city" name="city" required>
+        <option value="Delhi">Detecting your city...</option>
+        <optgroup label="Gujarat">
+          <option value="Ahmedabad">Ahmedabad</option>
+          <option value="Surat">Surat</option>
+          <option value="Rajkot">Rajkot</option>
+          <option value="Vadodara">Vadodara</option>
+        </optgroup>
+        <optgroup label="Maharashtra">
+          <option value="Mumbai">Mumbai</option>
+          <option value="Pune">Pune</option>
+          <option value="Nagpur">Nagpur</option>
+          <option value="Nashik">Nashik</option>
+        </optgroup>
+        <optgroup label="Rajasthan">
+          <option value="Jaipur">Jaipur</option>
+          <option value="Udaipur">Udaipur</option>
+          <option value="Jodhpur">Jodhpur</option>
+        </optgroup>
+        <optgroup label="Uttar Pradesh">
+          <option value="Lucknow">Lucknow</option>
+          <option value="Varanasi">Varanasi</option>
+          <option value="Kanpur">Kanpur</option>
+        </optgroup>
+        <optgroup label="Bihar">
+          <option value="Patna">Patna</option>
+          <option value="Gaya">Gaya</option>
+        </optgroup>
+        <optgroup label="Madhya Pradesh">
+          <option value="Bhopal">Bhopal</option>
+          <option value="Indore">Indore</option>
+          <option value="Jabalpur">Jabalpur</option>
+        </optgroup>
+        <optgroup label="Tamil Nadu">
+          <option value="Chennai">Chennai</option>
+          <option value="Madurai">Madurai</option>
+          <option value="Coimbatore">Coimbatore</option>
+        </optgroup>
+        <optgroup label="Telangana">
+          <option value="Hyderabad">Hyderabad</option>
+          <option value="Warangal">Warangal</option>
+        </optgroup>
+        <optgroup label="Karnataka">
+          <option value="Bengaluru">Bengaluru</option>
+          <option value="Mysuru">Mysuru</option>
+          <option value="Hubli">Hubli</option>
+        </optgroup>
+        <optgroup label="West Bengal">
+          <option value="Kolkata">Kolkata</option>
+          <option value="Siliguri">Siliguri</option>
+        </optgroup>
+        <optgroup label="Delhi">
+          <option value="Delhi">Delhi</option>
+        </optgroup>
+      </select>
+      <small id="city-status">📍 Trying to auto-detect your city...</small>
+
+      <label>🌐 Choose Language:</label>
+      <select name="lang">
+        <option value="en">English</option>
+        <option value="hi">Hindi</option>
+        <option value="gu">Gujarati</option>
+      </select>
+
+      <button id="submitBtn" type="submit" disabled>🔍 Detect</button>
+    </form>
+  </main>
+
+  <script>
+    // ---------- File selection ----------
+    const masterInput = document.getElementById('leaf');
+    const cameraBtn = document.getElementById('cameraBtn');
+    const libraryBtn = document.getElementById('libraryBtn');
+    const cameraPicker = document.getElementById('cameraPicker');
+    const libraryPicker = document.getElementById('libraryPicker');
+    const fileInfo = document.getElementById('fileInfo');
+    const preview = document.getElementById('preview');
+    const previewImg = document.getElementById('previewImg');
+    const submitBtn = document.getElementById('submitBtn');
+
+    function setFile(file) {
+      if (!file) return;
+      const dt = new DataTransfer();
+      dt.items.add(file);
+      masterInput.files = dt.files;
+      fileInfo.textContent = `Selected: ${file.name} (${Math.round(file.size/1024)} KB)`;
+      const url = URL.createObjectURL(file);
+      previewImg.src = url;
+      preview.style.display = 'block';
+      submitBtn.disabled = false;
+    }
+
+    cameraBtn.addEventListener('click', () => cameraPicker.click());
+    libraryBtn.addEventListener('click', () => libraryPicker.click());
+    cameraPicker.addEventListener('change', e => setFile(e.target.files[0]));
+    libraryPicker.addEventListener('change', e => setFile(e.target.files[0]));
+
+    // ---------- Auto-detect City (OpenWeather + Geolocation) ----------
+    function detectCity() {
+      const statusEl = document.getElementById("city-status");
+      const citySelect = document.getElementById("city");
+      if (!navigator.geolocation) { statusEl.innerText = "❌ Geolocation not supported."; return; }
+
+      navigator.geolocation.getCurrentPosition(success, fail, { enableHighAccuracy:true, timeout:10000, maximumAge:0 });
+
+      function success(position) {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+        const apiKey = "e2d34806bc2ef442218c4b0564187e73"; // your OpenWeather key
+        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`)
+          .then(r => r.json())
+          .then(data => {
+            const city = data && data.name;
+            if (!city) { statusEl.innerText = "⚠️ Could not detect city name."; return; }
+            let found = false;
+            for (let opt of citySelect.options) {
+              if (opt.value.toLowerCase() === city.toLowerCase()) { opt.selected = true; found = true; break; }
+            }
+            if (!found) {
+              citySelect.insertAdjacentHTML("afterbegin", `<option value="${city}" selected>${city}</option>`);
+            }
+            statusEl.innerText = `✅ Auto-detected: ${city}`;
+          })
+          .catch(() => { statusEl.innerText = "⚠️ Could not fetch city from OpenWeather."; });
+      }
+
+      function fail() { statusEl.innerText = "⚠️ Location access denied."; }
+    }
+
+    // Save city to sessionStorage before submit so results page can read it even if backend forgets to pass it
+    const form = document.getElementById('detectForm');
+    form.addEventListener('submit', () => {
+      const selectedCity = (document.getElementById('city').value || 'Delhi').trim();
+      sessionStorage.setItem('cropai_city', selectedCity);
+    });
+
+    // Run on load
+    detectCity();
+  </script>
+</body>
+</html>

@@ -1,0 +1,257 @@
+disease_name,organic,chemical,prevention,symptoms,climate_risk,fertilizer_guidelines,notes
+Apple Apple Scab,"• Remove & destroy fallen leaves/twigs to reduce inoculum
+• Prune for airflow; avoid overhead irrigation
+• Weekly sprays during cool/wet spring: Neem oil (0.5–1%), Potassium bicarbonate (5–10 g/L), Wettable sulfur (as per label)
+• Use scab-resistant cultivars where possible","• Preventive fungicides at tight cluster → petal fall → first cover: Myclobutanil (DMI), Difenoconazole, Captan, Mancozeb (rotate FRAC groups)
+• Curative window (within 72 h of infection) with DMIs; follow label PHI/REI","• Plant on sunny, well-drained sites; use resistant varieties
+• Sanitation: rake leaves post-harvest; compost hot
+• Space trees; keep canopy open; drip irrigate
+• Spring monitoring and timely sprays (forecast models help)","Olive-brown, velvety leaf spots (young leaves); leaf distortion/yellowing; scabby dark lesions on fruit causing cracking and deformity.","High risk in **cool (10–20 °C), wet springs**; extended leaf wetness after rain/drizzle favors infection.","Baseline per mature tree (adjust by soil test): Split N 60–80 g as elemental N in spring + early summer; P and K per soil test (typ. 30–40 g P₂O₅, 60–80 g K₂O). Avoid excess N during high scab pressure to limit tender growth.","Rotate FRAC groups to avoid resistance; avoid sulfur on oil-treated foliage in hot weather. Remove mummified fruit over winter."
+Apple Black Rot,"• Remove mummified fruit (‘mummies’) and cankers; prune 10–15 cm below canker margin
+• Sanitize prunings outside the orchard
+• Improve tree vigor: mulch, irrigation at root zone
+• Copper soap / fixed copper during dormant or high pressure","• Bloom to summer cover sprays: Captan, Mancozeb, Ziram, Thiophanate-methyl (rotate)
+• For cankers: pruning is primary; chemicals only protect new tissues","• Avoid injuries (hail, pruning wounds); disinfect tools
+• Remove dead wood & fire blight strikes (sources of Botryosphaeria)
+• Balanced fertilization; avoid drought stress; maintain airflow","Concentric brown rings on fruit (‘bull’s-eye’ rot); leaf lesions with purple margins & tan centers; limb/trunk cankers with cracked bark.","Greater in **warm, humid** conditions; stress/drought predispose trees; infection peaks late spring–summer.","Maintain moderate N (not excessive). Potassium sufficiency reduces fruit disorders. Apply 2–4 cm mulch; irrigate during dry spells.","Scout after storms for fresh wounds; promptly prune out cankers in dry weather."
+Apple Cedar Apple Rust,"• Remove nearby **juniper/red-cedar** hosts within ~50–300 m if feasible
+• Sulfur or lime-sulfur during primary infection period (pink → petal fall)
+• Maintain open canopy and drip irrigation","• Target primary infections in spring: Myclobutanil, Difenoconazole, Tebuconazole; Strobilurins (Trifloxystrobin) as rotation; Captan for cover sprays (mix/rotate per label)","• Separate new plantings from junipers
+• Monitor cedar galls (orange ‘jelly’ horns after rain): initiate protection before/at horn emergence
+• Use resistant apple cultivars when possible","Bright orange/yellow leaf spots with red halo; tube-like lesions on leaf undersides; fruit may show small rusty lesions; defoliation under high pressure.","High in **wet, windy spring** when cedar galls release spores; infection at 10–24 °C with leaf wetness.","Standard apple program; avoid lush N during primary rust season; maintain Ca and K for fruit quality.","Time sprays to infection periods; remove cedar galls in winter if removal of hosts isn’t possible."
+Apple Healthy,"• No treatment required. Maintain good hygiene and IPM monitoring.
+• Encourage beneficials; mulch; regular pruning for airflow.","—","• Keep canopy open; drip irrigate; sanitize tools; remove fallen leaves/fruit
+• Quarantine new plants; monitor weekly during spring.","Leaves uniform green; no lesions; fruit clean; shoots healthy.","Normal seasonal risk only; continue monitoring after rain events.","Follow soil test. Split N in spring/early summer; maintain K and Ca. Avoid over-fertilizing N which can invite foliar diseases.","Record a ‘healthy’ baseline photo for reference; continue routine scouting."
+
+
+disease_name,organic,chemical,prevention,symptoms,climate_risk,fertilizer_guidelines,notes
+Blueberry Healthy,"• Maintain mulched soil (pine bark or sawdust) to conserve moisture and suppress weeds.
+• Apply composted organic matter yearly.
+• Encourage mycorrhizal fungi with low-disturbance roots and limited tillage.
+• Maintain soil pH around 4.5–5.5 for optimal nutrient uptake.","—","• Ensure proper drainage; blueberries dislike waterlogging.
+• Use drip irrigation, not overhead sprinklers.
+• Prune annually to remove old canes and improve light penetration.
+• Avoid mechanical injury to stems and roots.","Healthy foliage: firm, waxy green leaves without spots or necrosis. Stems woody and firm; berries uniform in color and size.","Blueberries prefer **cool to moderate climates** (18–25 °C) with high humidity. Frost during flowering or extreme heat (>35 °C) can damage flowers or fruit.","For mature bushes: 40–60 kg/ha N (split early spring & post-harvest), 30 kg/ha P₂O₅, 60 kg/ha K₂O. Apply acidifying fertilizers such as ammonium sulfate.","Monitor leaf color for nutrient deficiency; pale leaves indicate high soil pH. Test soil every 2 years and mulch with acidic material."
+
+
+disease_name,organic,chemical,prevention,symptoms,climate_risk,fertilizer_guidelines,notes
+Cherry (Including Sour) Powdery Mildew,"• Prune for airflow; remove water sprouts and dense inner shoots.
+• Avoid overhead irrigation; irrigate at the root zone.
+• Weekly organic sprays during pressure: Potassium bicarbonate (5–10 g/L), Wettable sulfur (per label), Neem oil 0.5–1% (do not mix with sulfur; separate by 2–3 weeks).
+• Remove and destroy infected leaves/twigs; sanitize tools.","• Apply at first signs or when weather models indicate risk: Myclobutanil / Tebuconazole / Difenoconazole (rotate FRAC 3); Trifloxystrobin / Azoxystrobin (FRAC 11) in rotation; Wettable sulfur or Captan for cover sprays where allowed.
+• Strictly rotate FRAC groups to slow resistance; respect PHI/REI.","• Plant in sunny, well-ventilated sites; train canopy open (central leader or open center).
+• Space trees adequately; use drip lines with mulch to prevent splash.
+• Remove leaf litter post-harvest; avoid excess nitrogen that drives tender growth.","White powdery growth on young leaves, fruit pedicels, and shoots; leaf curling or distortion; premature leaf drop; russeting/scarring on fruit under severe pressure.","Greatest in **warm (18–28 °C), dry days + cool nights** with high humidity; infection does **not** require free water; dense shaded canopies increase risk.","Balanced nutrition; avoid high N flushes mid-summer. Typical annual program per mature tree (adjust via soil test): N 40–60 g as elemental N split spring/early summer; maintain K & Ca; foliar Ca can help fruit quality.","Do not apply oil within ~2–3 weeks of sulfur to avoid phytotoxicity. Remove highly susceptible wild hosts nearby if present."
+Cherry (Including Sour) Healthy,"• No treatment required; keep regular IPM scouting.
+• Maintain mulch, drip irrigation, and annual pruning for light and airflow.","—","• Sanitize tools; remove fallen leaves/fruit; thin fruit clusters to reduce humidity.
+• Quarantine new plants; choose locally adapted cultivars/rootstocks.","Uniform green leaves, no white powder, no chlorotic or necrotic lesions; shoots and fruit sound.","Normal seasonal risk; monitor after warm dry spells with cool nights (powdery mildew windows).","Follow soil test: modest N in spring; avoid late heavy N. Maintain K and Ca for fruit firmness and cracking tolerance.","Capture a ‘healthy’ photo reference each season for comparison; continue weekly scouting in spring–summer."
+
+
+disease_name,organic,chemical,prevention,symptoms,climate_risk,fertilizer_guidelines,notes
+Corn (Maize) Cercospora Leaf Spot,"• Rotate crops with non-hosts (soybean, wheat, sorghum).
+• Incorporate crop residues deeply after harvest to reduce inoculum.
+• Spray Neem oil (0.5–1%), Trichoderma bio-fungus, or compost tea extract weekly in humid conditions.
+• Use resistant hybrids where possible.","• Spray preventive fungicides at early tassel stage: Mancozeb (FRAC M03), Azoxystrobin, Pyraclostrobin, or Propiconazole (rotate FRAC 3/11/M).
+• Apply at first sign of lesions; 10–14-day interval if weather favors infection.","• Avoid dense planting; ensure airflow and row orientation with wind direction.
+• Avoid continuous maize cropping; manage residues; maintain K & Ca sufficiency.","Long narrow gray or tan rectangular lesions parallel to veins; may coalesce to blight large areas; premature leaf death reduces yield.","Favored by **warm (25–30 °C)**, humid conditions with prolonged leaf wetness; dense canopy or late irrigation favors disease.","N ~150–200 kg/ha (split basal + topdress at 30 & 60 days); maintain adequate K to improve tolerance. Avoid over-N as it delays maturity and favors leaf diseases.","Scout weekly from V8 stage; use forecast models for gray leaf spot severity; rotate fungicide FRAC groups yearly."
+Corn (Maize) Common Rust,"• Grow resistant hybrids.
+• Encourage airflow with proper spacing.
+• Apply Neem oil 1% or wettable sulfur 0.3% at first appearance of pustules (repeat every 10–12 days if needed).","• Triazoles (Propiconazole, Tebuconazole) and Strobilurins (Azoxystrobin, Pyraclostrobin) effective if applied at early pustule stage.
+• Mancozeb as protectant before infection.","• Avoid late sowing in high humidity areas.
+• Remove volunteer corn and alternate host weeds.
+• Rotate crops annually.","Small round reddish-brown pustules scattered on both leaf surfaces; turn black at maturity; severe infection causes premature drying.","Optimum between **15–25 °C** with high humidity and frequent rains; wind disperses spores quickly.","Balanced fertilization; maintain leaf K >1.5% dry matter to enhance tolerance; avoid excessive N in humid seasons.","Scout from V6 stage; apply fungicide at first 5% pustule appearance; use resistant hybrids in endemic areas."
+Corn (Maize) Northern Leaf Blight,"• Residue management: bury crop debris post-harvest.
+• Neem oil 1%, Trichoderma bio-control, and cow-urine extract sprays can suppress early lesions.
+• Use resistant varieties if available.","• Spray at disease onset: Mancozeb (M03), Chlorothalonil (M05) or Azoxystrobin/Propiconazole (rotate FRAC 11/3).
+• Repeat 10–14 days if wet weather persists.","• Avoid water stress; maintain K and balanced N.
+• Crop rotation with legumes or small grains reduces inoculum.
+• Space plants adequately for airflow.","Large cigar-shaped grayish-green lesions, later brown with tan centers; start on lower leaves and move upward; severe infections cause lodging and yield loss.","Favored by **moderate (18–27 °C)** temps with long dew periods; high humidity (>90%).","N 150–200 kg/ha (split doses), P₂O₅ 60–80 kg/ha, K₂O 80–100 kg/ha. Maintain Ca/Mg balance; foliar K beneficial under stress.","Scout from V8–VT; hybrid selection is key; rotate and till after harvest to reduce inoculum."
+Corn (Maize) Healthy,"• Maintain clean field borders; rotate crops; use certified seed.
+• Apply bio-fertilizers (Azospirillum, Azotobacter) and compost.
+• Monitor weekly for leaf spots.","—","• Practice balanced fertilization; maintain weed control.
+• Irrigate early morning; avoid leaf wetness overnight.","Uniform green leaves; no lesions or rust pustules; healthy tassel and ear.","Normal; monitor closely after prolonged wet/humid weather.","Follow soil test; split N (40% basal, 40% topdress at V8, 20% at tassel); ensure Zn & K sufficiency.","Healthy reference images should be saved each season to compare later; maintain IPM scouting log."
+
+
+disease_name,organic,chemical,prevention,symptoms,climate_risk,fertilizer_guidelines,notes
+Grape Black Rot,"• Remove mummified fruit and pruned canes from vineyard floor before bud break.
+• Spray Neem oil 1% or Copper oxychloride (organic-approved) at pre-bloom, post-bloom, and 2–3 weeks later.
+• Sulfur dust (when dry) or Bacillus subtilis biofungicide can also help.
+• Maintain open canopy; control weeds under vines.","• Apply protective fungicides beginning at 5–8 leaf stage: Mancozeb (M03), Captan (M04), or Myclobutanil / Tebuconazole (FRAC 3) rotated with Strobilurins (Azoxystrobin, Pyraclostrobin).
+• Maintain 10–14-day spray interval under wet/humid conditions.","• Prune properly to improve airflow and sunlight.
+• Avoid overhead irrigation; drip is preferred.
+• Destroy fallen berries and leaves.
+• Use resistant cultivars where available.","Brown circular leaf spots with dark borders; black shriveled berries (‘mummies’) remain attached to clusters; infected shoots turn black with sunken lesions.","Favored by **warm (24–30 °C)**, humid weather and frequent rainfall; long wet periods during flowering and fruit set are critical infection windows.","Apply N 80–100 kg/ha, P₂O₅ 60 kg/ha, K₂O 80 kg/ha; emphasize K for disease resistance; avoid over-N which increases canopy density.","Critical period: from pre-bloom to pea-size berries; maintain protective coverage throughout."
+Grape Esca (Black Measles),"• Remove infected vines; avoid pruning wounds in wet weather.
+• Apply Trichoderma-based wound protectant after pruning.
+• Avoid drought stress; irrigate deeply but infrequently.
+• Use composted organic matter and humic acids to support vine immunity.","• No curative fungicide exists; preventive pruning-wound paints with benzimidazoles (carbendazim) or tebuconazole can reduce infection risk.","• Avoid mechanical injury and large pruning wounds.
+• Maintain balanced canopy; remove dead wood.
+• Ensure drip irrigation, not flooding.","Tiger-striped interveinal chlorosis on leaves; black streaking of wood in cross-section; berries shrivel (‘black measles’); canopy decline mid-summer.","Worse in **hot, dry summers** following spring rain; water stress accelerates symptoms.","Maintain Ca and micronutrients (Zn, B, Fe); avoid excess N; apply organic compost post-harvest; foliar K₂SO₄ aids recovery.","Esca is chronic—mark infected vines for removal and avoid propagation from symptomatic wood."
+Grape Leaf Blight (Isariopsis Leaf Spot),"• Spray Neem oil 1% or Pseudomonas fluorescens bio-fungicide every 7–10 days once spots appear.
+• Remove lower infected leaves to improve airflow.
+• Maintain weed-free vineyard floor; drip irrigation only.","• Spray Mancozeb or Chlorothalonil (contact) plus systemic fungicide (Tebuconazole or Difenoconazole) alternately every 10–12 days in humid conditions.","• Avoid dense canopy; train shoots on trellis properly.
+• Prune to open center; collect and destroy fallen leaves.","Irregular brown or dark gray spots on leaves with yellow halo; severe infections cause defoliation and reduce yield.","Favored by **humid (25–32 °C)** conditions with frequent dew; high rainfall seasons promote disease.","Balanced nutrition; maintain soil pH 6–7; adequate K and Mg improve tolerance.","Combine spray schedule with downy mildew programs; avoid excessive copper accumulation in soil."
+Grape Healthy,"• Maintain canopy open; mulch with compost.
+• Regularly apply organic manures and biofertilizers.
+• Follow sanitation pruning; monitor weekly.","—","• Use resistant cultivars; maintain drip irrigation and balanced fertilization.","Glossy green leaves with no lesions or yellowing; healthy bunch formation; no cane streaks.","Normal; monitor after heavy rains or drought stress.","Fertilize based on soil test; maintain K:Ca ratio ~1:1; micro-nutrient foliar sprays twice a season.","Maintain IPM diary and healthy photo references; continue scouting even when healthy."
+
+
+disease_name,organic,chemical,prevention,symptoms,climate_risk,fertilizer_guidelines,notes
+Orange Haunglongbing (Citrus Greening),"• **Source control & hygiene**: Plant only certified HLB-free nursery stock; rogue (remove) trees that repeatedly test positive or show strong HLB symptoms to reduce inoculum.
+• **Vector (ACP) suppression – organic tools**: Weekly/bi-weekly sprays of horticultural oil 1–2% or Neem oil 0.5–1%; Kaolin clay film (per label) to deter feeding; yellow sticky cards to monitor psyllid activity; reflective mulches in young groves; inter-row flowering strips to boost natural enemies (e.g., *Tamarixia radiata*).
+• **Cultural**: Sanitation of prunings; remove volunteer citrus/Murraya nearby; install windbreaks or screenhouses for nurseries/young blocks.
+• **Tree support**: Consistent irrigation (avoid stress), micronutrient foliar feeds (Zn, Mn, B), and canopy thinning for light/air.","• **Vector control (follow local labels & rotations)**: Systemic neonicotinoids at approved timings for Asian citrus psyllid (ACP), e.g., Imidacloprid, Thiamethoxam, Dinotefuran; rotate modes of action to slow resistance. Contact/ingestion options include Spinetoram, Cyantraniliprole, Abamectin (check crop/PHI/BEEs).
+• **Antibiotics**: In some regions, **oxytetracycline trunk injection** is allowed under specific regulatory programs; use only where legal, with licensed applicators, and observe all label restrictions.
+• **Programs**: Coordinate **area-wide** sprays with neighbors for best impact; integrate oil/kaolin between systemic windows.","• Buy certified HLB-free plants.
+• Monitor psyllids with sticky cards and young flush scouting; time sprays to new flush.
+• Remove alternate hosts (ornamental Murraya/Orange Jasmine) near groves.
+• Disinfect tools; avoid moving infected plant material.
+• Maintain irrigation and nutrition to reduce stress.","Leaves with **asymmetric blotchy mottle** (not uniform like nutrient deficiency), corky/raised midrib, yellow shoots; small **lopsided fruit** with aborted seeds, off-flavor/bitterness; premature fruit drop; twig dieback.","Highest risk in **tropical/subtropical** zones with active ACP populations; warm temperatures and frequent leaf flush favor vector and disease spread; drought or nutrient stress worsens symptoms.","Adopt a **nutrition program** to sustain yields on affected trees: split N 150–220 kg/ha/yr (soil & foliar as needed), K₂O 150–220 kg/ha, Ca/Mg per soil test; frequent **foliar micronutrients** (Zn 0.3–0.5%, Mn 0.3–0.5%, B 0.1%) during flush; keep soil pH ~6.0–6.5; avoid prolonged deficiency or excess N that pushes very tender flush during peak ACP flights.","**No cure** exists; long-term management relies on clean planting material + rigorous vector suppression + nutrition. Coordinate with extension guidelines. Protect pollinators: apply insecticides when bees are not active; obey PHI/REI and rotate IRAC groups."
+
+
+disease_name,organic,chemical,prevention,symptoms,climate_risk,fertilizer_guidelines,notes
+Peach Bacterial Spot,"• Plant **resistant cultivars** (e.g., ‘Elberta’, ‘Harvester’) when available.
+• Prune to open the canopy and promote air flow.
+• Spray **copper hydroxide** (0.2–0.3%) or **Bordeaux mixture** at bud swell, shuck split, and post-harvest.
+• Apply **Neem oil 0.5%** or **Pseudomonas fluorescens bio-bactericide** weekly during humid weather.
+• Avoid excessive nitrogen that promotes tender, infection-prone growth.","• **Copper-based bactericides** (Copper oxychloride, Copper hydroxide, or Kocide formulations) before and after bloom.
+• **Oxytetracycline** sprays (100–200 ppm) may be used during high-risk conditions where permitted.
+• Always alternate copper and antibiotic sprays to minimize resistance and phytotoxicity.","• Avoid planting in low-lying areas with poor drainage.
+• Remove mummified fruit and infected twigs during pruning.
+• Sanitize tools and avoid pruning when trees are wet.
+• Avoid overhead irrigation; use drip lines instead.","Angular brown to black lesions on leaves, often shot-hole appearance; fruit lesions are small, dark, sunken pits with cracking; twig cankers and premature fruit drop in severe cases.","Favored by **warm (25–30 °C)**, humid conditions with frequent rainfall and wind-blown rain; high N fertilization and dense canopies increase disease.","Balanced fertilization: N 80–100 kg/ha, P₂O₅ 60 kg/ha, K₂O 80 kg/ha; avoid excessive N mid-season. Apply foliar Ca and B for fruit firmness.","Avoid copper sprays under hot, dry (>32 °C) weather to prevent leaf burn. Monitor copper residues if repeated applications are used."
+Peach Healthy,"• Maintain pruning and good airflow.
+• Apply organic mulch and compost each year.
+• Use biofertilizers (Azospirillum, Trichoderma) for root health.","—","• Prune dead or crossing branches post-harvest.
+• Maintain drip irrigation and weed-free basins.
+• Sanitize pruning tools between trees.","Healthy green leaves, smooth fruit surface, no pitting or dark lesions.","Normal; monitor closely after heavy rain or high humidity.","Maintain N 80 kg/ha split spring + fruit-set; adequate K for sweetness and firmness; foliar Ca improves shelf life.","Check leaf samples for Zn and Fe deficiencies; maintain pH 6–6.5."
+
+
+disease_name,organic,chemical,prevention,symptoms,climate_risk,fertilizer_guidelines,notes
+Pepper Bell Bacterial Spot,"• Start with **certified, pathogen-free seed** or treat seed with hot water (50 °C for 25 min) or 10% bleach (1 min) followed by rinsing.
+• Apply **copper-based sprays** (copper hydroxide 0.3% or Bordeaux 0.5%) every 7–10 days during humid periods.
+• Use **Neem oil 0.5%** or **Pseudomonas fluorescens** bio-bactericide to reduce bacterial load.
+• Avoid overhead watering; irrigate at the base.
+• Remove infected debris and mulch to reduce splash spread.","• Copper hydroxide or copper oxychloride (FRAC M1) + Mancozeb (M3) as protectant sprays during humid conditions.
+• For severe infections, use **Streptocycline** (streptomycin + tetracycline mix, 100 ppm) or **Kasugamycin** where permitted.
+• Alternate copper and antibiotic sprays to minimize resistance.","• Rotate with non-solanaceous crops for 2–3 years.
+• Avoid working with wet plants; disinfect tools regularly.
+• Use resistant hybrids where available (e.g., ‘Arka Mohini’, ‘Indra F1’).
+• Maintain spacing 45–60 cm rows; good airflow reduces bacterial survival.","Water-soaked dark spots on leaves that enlarge, become brown and often have yellow halo; fruit lesions are raised, scabby, and corky; leaf drop and defoliation in severe cases.","Favored by **warm (25–32 °C)**, high humidity, and splashing rain. Disease worsens after storms or overhead irrigation.","Maintain N 100 kg/ha, P₂O₅ 60 kg/ha, K₂O 80–100 kg/ha. Avoid excess N; apply Ca and B for fruit firmness.","Copper sprays may cause phytotoxicity under very high temperatures (>32 °C). Do not mix copper and antibiotics in the same tank. Practice IPM rotation and seed sanitation each season."
+Pepper Bell Healthy,"• Maintain organic mulch and drip irrigation to avoid leaf wetness.
+• Spray neem oil (0.5%) once every 15 days as preventive.
+• Add Trichoderma + compost for soil health.","—","• Rotate crops; maintain weed-free beds.
+• Use well-drained raised beds and avoid standing water.","Healthy shiny green leaves, firm fruits with smooth surface, no brown or scabby spots.","Normal risk; monitor after rains or storms.","Balanced fertilization (N 100 kg/ha, P 60, K 80) split across growth stages. Apply micronutrients (Zn, B, Ca) via foliar spray every 30 days.","Keep monitoring for bacterial spot especially after heavy rain; early neem oil sprays can prevent infection."
+
+
+disease_name,organic,chemical,prevention,symptoms,climate_risk,fertilizer_guidelines,notes
+Potato Early Blight,"• Remove volunteer potatoes and nightshade weeds.
+• Mulch rows; avoid overhead irrigation; water early morning only.
+• Weekly organic sprays at first lesions: Neem oil 0.5–1%, Potassium bicarbonate (5–10 g/L), Bacillus subtilis / Trichoderma biofungicides.
+• Improve airflow with hilling and proper spacing.","• Begin protectant sprays at row closure/first lesions: Mancozeb (M03), Chlorothalonil (M05), Captan (M04).
+• Add systemics/curatives in rotation during pressure: Azoxystrobin / Pyraclostrobin (FRAC 11), Difenoconazole / Propiconazole (FRAC 3).
+• 7–10 day interval; tighten to 5–7 days in conducive weather; rotate FRAC groups.","• Use certified seed; avoid wounding during planting.
+• Rotate out of solanaceous crops 2–3 years.
+• Maintain K and Ca sufficiency; avoid excess N that produces lush foliage.
+• Destroy crop residues after harvest.","Concentric (‘target’) rings on older leaves; yellow halos; lesions expand causing blight; dry, sunken dark lesions on stems/tubers; foliage senesces from bottom up.","Favored by **warm (24–30 °C)** with alternating wet/dry periods; prolonged leaf wetness and humidity accelerate spread.","Base (per ha): N 120–150 kg split (planting + hilling), P₂O₅ 60–90 kg, K₂O 120–150 kg; K is critical for disease tolerance and tuber quality. Foliar Ca at tuber bulking helps.","Scout from canopy closure; use forecasting (e.g., TOM-CAST). Alternate FRAC 3/11 with multisite protectants to slow resistance."
+Potato Late Blight,"• Rogue infected plants early; remove cull piles; destroy volunteers.
+• Copper-based protectants approved for organic (Copper oxychloride/hydroxide per label); apply ahead of forecasted infection periods.
+• Strict sanitation; avoid overhead irrigation; ensure rapid canopy drying with wider rows/airflow.","• Start **preventive** program before or at first forecast alert: Cyazofamid (FRAC 21), Mandipropamid (40), Fluopicolide (43), Oxathiapiprolin (49), Dimethomorph (40), Metalaxyl-M/Mefenoxam (4) where sensitive populations remain; **always rotate** modes and tank-mix with multisites (Chlorothalonil M05, Mancozeb M03).
+• Tight intervals (5–7 days) during cool, wet weather.","• Plant certified, fungicide-treated seed; avoid poorly drained fields.
+• Hill well to protect tubers; manage irrigation to avoid prolonged leaf wetness.
+• Eliminate nearby tomato hosts; sanitize equipment.","Water-soaked, oily lesions with pale green halo on leaves; rapid brown/black blight under cool, wet conditions; white downy growth at lesion margins (underside). Tuber infections are firm, brown granular rot under the skin.","Explodes under **cool (10–20 °C), wet, humid** weather with long leaf wetness; night temps + heavy dew are high risk.","N 120–150 kg/ha split; prioritize **K₂O 150–200 kg/ha** for tuber firmness; avoid late heavy N which delays maturity and increases susceptibility; Ca and Mg balanced.","Late blight can overcome single-site fungicides quickly—rotate FRAC groups, maintain coverage, and remove cull piles. Watch regional alerts."
+Potato Healthy,"• Maintain weed-free ridges; drip or furrow irrigation to keep foliage dry.
+• Compost + Trichoderma at planting; seed piece dusting with bio-agents where available.","—","• Use certified seed; sanitize cutters; treat seed for seed-borne pathogens where needed.
+• Rotate 2–3 years away from potatoes and tomatoes.","Uniform green foliage; no concentric rings or water-soaked lesions; firm, clean tubers.","Normal; monitor closely during cool/wet spells (late blight) and warm humid spells (early blight).","Follow soil test; split N (e.g., 80–100 kg at planting + 40–50 kg at hilling); K high relative to N; ensure adequate S, Ca, Mg and Zn. Maintain pH ~5.2–5.8.","Record healthy reference photos; scout twice weekly from canopy closure; keep irrigation early morning to reduce night-time leaf wetness."
+
+
+disease_name,organic,chemical,prevention,symptoms,climate_risk,fertilizer_guidelines,notes
+Raspberry Healthy,"• Maintain mulched beds using composted sawdust or straw to conserve moisture.
+• Drip irrigation to keep foliage dry.
+• Prune old canes post-harvest; maintain 8–10 canes per foot of row.
+• Apply compost or well-rotted manure annually before bud break.
+• Encourage pollinators; avoid insecticides during bloom.","—","• Plant disease-free stock; space rows 2.5–3 ft apart for air movement.
+• Weed control is essential; grasses increase humidity and pest risk.
+• Sanitize pruning tools.","Healthy dark green foliage, no cane dieback or spots; plump berries; vigorous new canes.","Moderate climates (15–25 °C) with well-drained soil preferred; waterlogging or drought both reduce vigor.","N 40–60 kg/ha as split top-dressing (spring + early summer), P₂O₅ 50 kg/ha, K₂O 80 kg/ha. Maintain soil pH 6.0–6.5.","Rejuvenate beds every 4–5 years; rotate with non-Rosaceae crops; maintain mulch and compost annually."
+Soybean Healthy,"• Maintain residue cover and crop rotation to improve soil health.
+• Use Rhizobium biofertilizer seed inoculation for nitrogen fixation.
+• Foliar spray of seaweed extract or humic acid biostimulants at vegetative stage.
+• Maintain adequate irrigation; avoid drought stress during pod filling.","—","• Rotate with cereals (maize/wheat) to reduce pathogen buildup.
+• Use certified seed and avoid late sowing.
+• Ensure pest-free, weed-free field.","Healthy green leaves, no mosaic, blight, or spots; uniform nodulation at roots; full pods.","Soybean thrives at **25–30 °C**; avoid waterlogging; dry spells during flowering reduce yield.","Base: N-fixing crop—no direct N needed if inoculated; apply P₂O₅ 40–60 kg/ha, K₂O 40–60 kg/ha; foliar Zn + Fe sprays recommended.","Monitor for early signs of rust or yellow mosaic after rains; maintain soil microbiota with minimal chemical disturbance."
+Squash Powdery Mildew,"• Increase air flow: space plants properly; train vines off the ground.
+• Weekly sprays: Neem oil (0.5%), Potassium bicarbonate (5 g/L), or milk spray (1:9 dilution) as organic fungicide.
+• Introduce *Ampelomyces quisqualis* bio-fungus (natural hyperparasite).
+• Avoid excess nitrogen.","• Sulfur dust (wettable sulfur 0.3%) or triazole fungicides (Tebuconazole, Myclobutanil) at first visible spots; alternate with strobilurins (Azoxystrobin) for resistance management.
+• Apply every 7–10 days if conditions persist.","• Water early in the day to allow leaves to dry quickly.
+• Remove infected leaves; dispose away from field.
+• Rotate crops yearly and avoid cucurbit residues in soil.","White powdery coating on upper leaf surfaces; leaf curling and yellowing; stunted growth and reduced fruit set.","Favored by **warm (20–30 °C), dry days with humid nights**; dense canopy accelerates spread.","N 80–100 kg/ha split (half basal, half at flowering), P₂O₅ 60 kg/ha, K₂O 80–100 kg/ha; adequate Ca improves fruit firmness.","Avoid spraying sulfur during hot (>32 °C) or drought periods. Rotate fungicide classes every crop cycle."
+Strawberry Leaf Scorch,"• Remove and destroy infected leaves post-harvest.
+• Weekly Neem oil 0.5–1% or copper-based fungicide sprays in early spring.
+• Use Trichoderma / Bacillus subtilis biofungicides in soil drench.
+• Maintain drip irrigation only (no overhead).","• Preventive fungicide sprays: Mancozeb or Chlorothalonil pre-bloom; systemic options like Azoxystrobin or Difenoconazole post-bloom (rotate FRAC groups).","• Use clean planting material.
+• Space plants 30 cm apart; prune runners to improve airflow.
+• Remove debris and old leaves before new flush.","Small purple to brown spots with pale centers on leaves; later coalesce causing leaf drying (‘scorching’); yield reduction under severe infection.","Occurs during **cool to mild (18–26 °C), humid** weather; prolonged leaf wetness critical.","Apply N 80–100 kg/ha, P₂O₅ 60 kg/ha, K₂O 120 kg/ha; Ca & B foliar sprays improve fruit quality.","Remove old mulch after harvest; reapply fresh straw to reduce overwintering inoculum."
+Strawberry Healthy,"• Maintain raised beds with straw mulch.
+• Apply compost + Trichoderma at planting.
+• Use drip irrigation and row covers for frost protection.
+• Seaweed extract foliar spray improves stress tolerance.","—","• Rotate with non-cucurbit/non-strawberry crops.
+• Sanitize beds and tools; maintain bee-friendly environment.","Healthy green leaves, glossy and firm; no purple/brown lesions; bright red berries.","Optimal growth **18–28 °C**; frost or high humidity stress reduces yield.","Balanced fertilizer N 80–100 kg/ha, P₂O₅ 60 kg/ha, K₂O 120 kg/ha; micronutrients Zn + B foliar every 30 days.","Replace planting stock every 2–3 years; continue preventive care."
+
+
+disease_name,organic,chemical,prevention,symptoms,climate_risk,fertilizer_guidelines,notes
+Tomato Bacterial Spot,"• Start with pathogen-free or hot-water–treated seed (50 °C × 25 min).
+• Rotate out of Solanaceae for 2–3 years.
+• Weekly sprays: Copper hydroxide 0.3% + Neem oil 0.5% or Pseudomonas fluorescens bio-bactericide.
+• Avoid overhead irrigation; irrigate early AM at base.","• Copper oxychloride (M1) + Mancozeb (M3) alternating 7–10 days.
+• Streptocycline (100 ppm) or Kasugamycin used only where permitted; alternate with copper.","• Sanitize tools and stakes; remove volunteer tomatoes and weeds.
+• Avoid dense planting and excess N.
+• Use resistant cultivars if available.","Small dark greasy spots on leaves with yellow halo; fruit shows raised scabby lesions.","Favored by **warm (25–32 °C)** humid conditions and splashing rain.","N 100–120 kg/ha (split 3 times), P₂O₅ 60 kg/ha, K₂O 100 kg/ha; maintain Ca and B for fruit firmness.","Avoid mixing copper + antibiotics in tank; rotate chemical classes each crop cycle."
+Tomato Early Blight,"• Remove crop debris; rotate 3 years.
+• Neem oil 1%, Trichoderma or Bacillus biofungicide every 10 days.
+• Use mulch to reduce soil splash.
+• Space plants for airflow.","• Mancozeb (M03) or Chlorothalonil (M05) protectant; Azoxystrobin, Propiconazole, Difenoconazole (systemic) in rotation (3/11).","• Avoid excess N; stake plants upright for dry leaves.
+• Prune lower leaves touching soil.","Dark concentric rings on lower leaves; yellow halo; fruit neck rot near stem.","Occurs in **warm humid (24–30 °C)** with periodic rain.","N 100–120 kg/ha, P₂O₅ 60, K₂O 120; adequate Ca/K reduces blossom-end rot and disease.","Alternate FRAC 3/11 fungicides; remove infected leaves immediately."
+Tomato Late Blight,"• Remove infected plants and mulch heavily.
+• Copper hydroxide 0.3% preventive sprays.
+• Use Trichoderma bio-drench before transplant; Neem oil 0.5% as weekly foliar.","• Preventive sprays before forecasted rains: Cymoxanil (27) + Mancozeb (M03), Metalaxyl (4), Dimethomorph (40), Oxathiapiprolin (49), Mandipropamid (40); alternate FRAC.","• Avoid overhead irrigation and dense planting.
+• Destroy nightshade weeds and cull piles.","Water-soaked gray lesions with white moldy undersides; rapid leaf blight and brown fruit rot.","Thrives in **cool (15–22 °C)** wet weather with >90 % humidity.","N 120 kg/ha (split planting + flowering), K₂O 150 kg/ha for firm fruits.","Rotate FRAC groups strictly; destroy cull piles after harvest."
+Tomato Leaf Mold,"• Increase ventilation in greenhouses.
+• Neem oil 1%, Baking soda (5 g/L) + soap spray, Trichoderma foliar spray weekly.","• Copper oxychloride (M1) or Chlorothalonil (M05) preventive; Difenoconazole, Azoxystrobin systemic rotation.","• Reduce humidity (<85 %) and maintain air circulation.
+• Avoid late evening watering.","Yellow patches upper leaf surface with olive-green velvety mold below.","Occurs in **humid greenhouse >85 % RH** and moderate (20–25 °C).","Balanced NPK (100-60-100 kg/ha) and micronutrient foliar sprays (Zn, B).","Disinfect greenhouse tools and structures post-harvest."
+Tomato Mosaic Virus,"• Rogue infected plants immediately.
+• Spray Neem oil or milk solution (1:10) on foliage to reduce vector activity.
+• Use virus-free seed and Trichoderma soil treatment.
+• Intercrop with barrier plants like maize.","• Vector control via Imidacloprid or Thiamethoxam seedling sprays.
+• No direct cure; manage aphids and whiteflies that spread virus.","• Avoid tobacco use and hands contaminated with sap.
+• Disinfect tools with 1% bleach after each use.","Mosaic mottle (light and dark green patches) on leaves; distorted growth; reduced fruit set; stunted plants.","Favored by **warm (22–28 °C)** and presence of vector insects.","Maintain balanced K and Zn; avoid excess N that encourages soft tissue susceptibility.","Use resistant cultivars (TM-2² gene); rogue infected plants immediately and burn debris."
+
+
+disease_name,organic,chemical,prevention,symptoms,climate_risk,fertilizer_guidelines,notes
+Tomato Septoria Leaf Spot,"• Remove lower leaves touching soil; mulch heavily to prevent splash.
+• Spray Neem oil 0.5–1 % or Baking-soda (5 g/L + soap) every 7 days.
+• Foliar biofungicides (Bacillus subtilis or Trichoderma based) weekly under humid weather.","• Mancozeb (M03) or Chlorothalonil (M05) protectants.
+• Systemics in rotation: Azoxystrobin (FRAC 11), Difenoconazole (FRAC 3).","• Rotate out of Solanaceae for 2–3 years.
+• Stake plants for airflow; irrigate early morning.
+• Destroy infected debris after harvest.","Small circular gray spots with dark borders; numerous tiny black dots (pycnidia) visible under lens.","Favored by **humid (22–28 °C)** with frequent rains or overhead watering.","N 100 kg/ha, P₂O₅ 60, K₂O 120; foliar Ca and Zn improve tolerance.","Scout from lower leaves upward every 5–7 days; rotate fungicides each crop."
+Tomato Spider Mites (Two-Spotted Spider Mite),"• Encourage predators (*Phytoseiulus persimilis*, lady beetles).
+• Spray Neem oil 1 % or horticultural oil 1.5 % weekly.
+• Wash undersides of leaves with water jet to knock off mites.","• Abamectin (IRAC 6) or Spiromesifen (23) for mites at economic threshold; rotate IRAC groups.
+• Avoid broad-spectrum insecticides that kill beneficials.","• Maintain adequate irrigation; avoid water stress.
+• Control dust on field roads – mites thrive in dusty conditions.
+• Maintain weed-free beds.","Fine silky webbing under leaves; tiny reddish mites; bronzed or stippling leaf surface; leaves curl and dry.","Hot dry conditions (>30 °C, low RH) accelerate multiplication.","Balanced NPK; avoid over-N that produces tender foliage attractive to mites.","Monitor weekly with 10× lens; apply selective acaricides only when threshold exceeds 10 mites/leaf."
+Tomato Target Spot,"• Remove infected leaves and maintain open canopy.
+• Spray Neem oil 0.5 % or Trichoderma/Bacillus biofungicide every 7–10 days.
+• Improve airflow and avoid leaf wetness.","• Preventive sprays: Chlorothalonil (M05) or Mancozeb (M03);
+• Curative: Azoxystrobin or Difenoconazole (rotate FRAC 11/3).","• Avoid overhead irrigation and dense planting.
+• Rotate with non-host crops.","Round brown spots with concentric rings and yellow halos; begin on lower leaves; may infect fruit under calyx.","Warm humid (25–30 °C) with frequent rain favors spread.","N 100–120 kg/ha, P₂O₅ 60, K₂O 120; K and Ca help reduce lesions on fruit.","Combine with early blight programs for integrated control."
+Tomato Yellow Leaf Curl Virus,"• Control whiteflies (> 95 % of spread): Neem oil 1 %, yellow sticky traps, marigold barrier crops.
+• Remove infected plants immediately.
+• Spray seaweed extract + micronutrient tonics to boost plant tolerance.","• Manage whiteflies with Imidacloprid (4A), Thiamethoxam (4A), Pymetrozine (9B) – rotate IRAC groups every 10 days.
+• No direct virus cure.","• Avoid planting near cotton or okra (whitefly hosts).
+• Use resistant varieties (TYLCV-tolerant hybrids).
+• Remove weeds that harbor whiteflies.","Upward curling and yellowing of young leaves; stunted plants; reduced fruit set.","High risk in **hot (28–35 °C)** dry weather with whitefly population.","Maintain balanced K and Zn; avoid excess N that favors soft growth.","Use mulches and row nets to reduce vector entry; replant only after field sanitation."
+Tomato Healthy,"• Maintain mulch and weekly Neem oil preventive spray.
+• Drip irrigation; avoid leaf wetness.
+• Add Trichoderma and compost to soil.","—","• Rotate crops every 2–3 years; keep weed-free.
+• Stake plants for airflow.","Uniform green leaves, no spots or curling; healthy fruit set.","Normal conditions; monitor after heavy rain or dry hot spells.","N 100–120 kg/ha split (3 times), P₂O₅ 60, K₂O 120; Ca and B foliar spray for fruit quality.","Maintain IPM scouting and healthy photo references each season."
