@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🌿 CropCare - Detect Plant Disease</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #059669; /* Emerald 600 */
+      --primary-light: #34d399; /* Emerald 400 */
+      --primary-dark: #047857;
+      --card-bg: rgba(255, 255, 255, 0.85); /* Glass base */
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border-color: rgba(255, 255, 255, 0.6);
+      --shadow: 0 16px 40px rgba(0,0,0,0.08);
+      --radius: 20px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    * { box-sizing: border-box; }
+
+    body { 
+      font-family: 'Plus Jakarta Sans', sans-serif; 
+      /* Beautiful Background Wallpaper with Soft Bright Overlay */
+      background-image: 
+        linear-gradient(to bottom, rgba(248, 250, 252, 0.85), rgba(226, 241, 235, 0.85)), 
+        url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: var(--text-main);
+      margin: 0; padding: 0;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+    }
+    
+    /* Navigation Bar */
+    header { 
+      background: rgba(255, 255, 255, 0.6); 
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      padding: 1rem 5%; 
+      display: flex; justify-content: space-between; align-items: center;
+      position: sticky; top: 0; z-index: 100;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    }
+    .logo { font-size: 1.5rem; font-weight: 800; display: flex; align-items: center; gap: 8px; color: var(--primary-dark); }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a {
+      text-decoration: none; color: var(--text-muted); font-weight: 700;
+      transition: var(--transition); font-size: 0.95rem;
+    }
+    .nav-links a:hover { color: var(--primary); }
+
+    /* Hero Section */
+    .hero { text-align: center; padding: 4rem 1rem 2rem; }
+    .hero h1 {
+      font-size: 2.8rem; font-weight: 800; margin-bottom: 0.5rem; letter-spacing: -0.03em;
+      color: var(--primary-dark);
+    }
+    .hero p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 1rem; font-weight: 500; }
+
+    main { padding: 0 1rem 4rem; display: flex; justify-content: center; flex: 1; }
+    
+    /* Glassmorphic Form Card */
+    form { 
+      background: var(--card-bg); 
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      padding: 2.5rem; border-radius: var(--radius); box-shadow: var(--shadow); 
+      width: 100%; max-width: 460px; border: 1px solid var(--border-color);
+    }
+    
+    label { font-weight: 700; margin-bottom: 0.6rem; display: block; color: var(--text-main); font-size: 0.95rem; }
+    
+    select { 
+      width: 100%; padding: 1rem 1.2rem; margin-bottom: 1.8rem; border-radius: 12px; 
+      border: 1px solid rgba(0,0,0,0.1); font-size: 1rem; 
+      font-family: inherit; font-weight: 600; background-color: rgba(255,255,255,0.9);
+      color: var(--text-main); transition: var(--transition);
+      appearance: none; background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat; background-position: right 1rem center; background-size: 1em;
+    }
+    select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15); }
+    
+    /* Upload Section */
+    .upload-box {
+      border: 2px dashed rgba(5, 150, 105, 0.4); border-radius: 16px; padding: 2.5rem 1rem;
+      text-align: center; background: rgba(255, 255, 255, 0.6); margin-bottom: 1.5rem;
+      transition: var(--transition); cursor: pointer;
+    }
+    .upload-box:hover { background: rgba(209, 250, 229, 0.6); border-color: var(--primary-light); }
+    .upload-icon { font-size: 3.2rem; margin-bottom: 0.8rem; display: inline-block; transition: var(--transition); }
+    .upload-box:hover .upload-icon { transform: translateY(-5px); }
+    
+    button { 
+      width: 100%; padding: 1rem; border-radius: 12px; border: none; 
+      font-size: 1rem; font-weight: 800; font-family: inherit; cursor: pointer; 
+      transition: var(--transition); display: flex; justify-content: center; align-items: center; gap: 8px;
+    }
+    
+    .btn-primary { background: var(--primary); color: white; box-shadow: 0 4px 14px rgba(5, 150, 105, 0.25); }
+    .btn-primary:hover:not(:disabled) { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(5, 150, 105, 0.35); }
+    .btn-primary:disabled { background: #94a3b8; cursor: not-allowed; box-shadow: none; transform: none; }
+    
+    .btn-ghost { background: #fff; color: var(--text-main); border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 2px 6px rgba(0,0,0,0.02);}
+    .btn-ghost:hover { background: #f8fafc; transform: translateY(-1px); }
+    
+    .row { display: flex; gap: 12px; margin-bottom: 1rem; }
+    .row > * { flex: 1; }
+    
+    small { color: var(--text-muted); display: block; margin-bottom: 1.2rem; font-size: 0.85rem; font-weight: 500;}
+    
+    .fileinfo { color: var(--primary-dark); font-size: 0.95rem; font-weight: 700; margin-bottom: 1rem; text-align: center; }
+    .preview { margin-bottom: 1.5rem; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 2px solid white; }
+    .preview img { width: 100%; display: block; object-fit: cover; }
+    
+    /* Loader Overlay */
+    .loader-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px);
+      display: none; flex-direction: column; justify-content: center; align-items: center; z-index: 999;
+    }
+    .loader-spinner {
+      width: 50px; height: 50px; border-radius: 50%;
+      border: 4px solid rgba(5, 150, 105, 0.2); border-top-color: var(--primary);
+      animation: spin 1s linear infinite; margin-bottom: 1.2rem;
+    }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .hero h1 { font-size: 2.2rem; }
+      form { padding: 1.5rem; }
+      .row { flex-direction: column; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">🌿 CropCare</div>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/treatments">Knowledge Base</a>
+      <a href="/community">Community</a>
+    </div>
+  </header>
+
+  <div class="loader-overlay" id="loader">
+    <div class="loader-spinner"></div>
+    <h3 style="color: var(--text-main); margin: 0; font-weight: 800;">Analyzing Plant Health...</h3>
+    <p style="color: var(--text-muted); margin-top: 8px;">Running image through AI model.</p>
+  </div>
+
+  <div class="hero">
+    <h1>Smart Farm Assistant</h1>
+    <p>Upload a leaf image for robust AI disease diagnostics.</p>
+  </div>
+
+  <main>
+    <form id="detectForm" method="POST" enctype="multipart/form-data">
+      
+       <div class="upload-box" id="uploadBox">
+        <div class="upload-icon">📸</div>
+        <label style="font-size: 1.1rem; cursor:pointer;">Upload Leaf Image</label>
+        <small>Drag & drop or directly select from device</small>
+        
+        <input id="leaf" name="leaf" type="file" accept="image/*" required style="display:none">
+
+        <div class="row">
+          <button type="button" class="btn-ghost" id="cameraBtn">Take Photo</button>
+          <button type="button" class="btn-ghost" id="libraryBtn">Browse Gallery</button>
+        </div>
+      </div>
+
+      <!-- Live Webcam -->
+      <div id="webcamContainer" style="display:none; margin-bottom: 1.5rem; text-align: center;">
+        <video id="webcamVideo" autoplay playsinline style="width: 100%; border-radius: 12px; background: #000; margin-bottom: 1rem; box-shadow: var(--shadow);"></video>
+        <div class="row">
+          <button type="button" class="btn-primary" id="captureBtn">📸 Snap Photo</button>
+          <button type="button" class="btn-ghost" id="cancelWebcamBtn">Cancel</button>
+        </div>
+      </div>
+
+      <div id="fileInfo" class="fileinfo"></div>
+      <div class="preview" id="preview" style="display:none;">
+        <img id="previewImg" alt="Preview">
+      </div>
+
+      <!-- City Select (Manual only, elegant and user friendly) -->
+      <label>📍 Select City (For Local Weather):</label>
+      <select id="city" name="city" required>
+        <option value="Delhi" selected>Delhi</option>
+        <optgroup label="Gujarat">
+          <option value="Ahmedabad">Ahmedabad</option>
+          <option value="Surat">Surat</option>
+          <option value="Rajkot">Rajkot</option>
+          <option value="Vadodara">Vadodara</option>
+        </optgroup>
+        <optgroup label="Maharashtra">
+          <option value="Mumbai">Mumbai</option>
+          <option value="Pune">Pune</option>
+          <option value="Nagpur">Nagpur</option>
+          <option value="Nashik">Nashik</option>
+        </optgroup>
+        <optgroup label="Rajasthan">
+          <option value="Jaipur">Jaipur</option>
+          <option value="Udaipur">Udaipur</option>
+          <option value="Jodhpur">Jodhpur</option>
+        </optgroup>
+        <optgroup label="Uttar Pradesh">
+          <option value="Lucknow">Lucknow</option>
+          <option value="Varanasi">Varanasi</option>
+          <option value="Kanpur">Kanpur</option>
+        </optgroup>
+        <optgroup label="Karnataka">
+          <option value="Bengaluru">Bengaluru</option>
+          <option value="Mysuru">Mysuru</option>
+        </optgroup>
+      </select>
+
+      <label>🌐 Preferred Language:</label>
+      <select name="lang">
+        <option value="en">English</option>
+        <option value="hi">Hindi</option>
+        <option value="gu">Gujarati</option>
+      </select>
+
+      <button id="submitBtn" class="btn-primary" type="submit" disabled>✨ Analyze Plant Health</button>
+    </form>
+  </main>
+
+  <script>
+    const masterInput = document.getElementById('leaf');
+    const cameraBtn = document.getElementById('cameraBtn');
+    const libraryBtn = document.getElementById('libraryBtn');
+    const fileInfo = document.getElementById('fileInfo');
+    const preview = document.getElementById('preview');
+    const previewImg = document.getElementById('previewImg');
+    const submitBtn = document.getElementById('submitBtn');
+    const uploadBox = document.getElementById('uploadBox');
+
+    const webcamContainer = document.getElementById('webcamContainer');
+    const webcamVideo = document.getElementById('webcamVideo');
+    const captureBtn = document.getElementById('captureBtn');
+    const cancelWebcamBtn = document.getElementById('cancelWebcamBtn');
+    let webcamStream = null;
+
+    function updatePreview(file) {
+      if (!file) return;
+      fileInfo.textContent = `Attached: ${file.name} (${Math.round(file.size/1024)} KB)`;
+      previewImg.src = URL.createObjectURL(file);
+      preview.style.display = 'block';
+      submitBtn.disabled = false;
+      uploadBox.style.borderColor = "var(--primary)";
+      uploadBox.style.background = "rgba(209, 250, 229, 0.7)";
+    }
+
+    cameraBtn.addEventListener('click', async (e) => { 
+      e.preventDefault(); 
+      try {
+        webcamStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
+        webcamVideo.srcObject = webcamStream;
+        uploadBox.style.display = 'none';
+        preview.style.display = 'none';
+        fileInfo.textContent = '';
+        webcamContainer.style.display = 'block';
+        submitBtn.disabled = true;
+      } catch (err) { alert("Camera access required for this feature."); }
+    });
+
+    captureBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const canvas = document.createElement('canvas');
+      canvas.width = webcamVideo.videoWidth; canvas.height = webcamVideo.videoHeight;
+      canvas.getContext('2d').drawImage(webcamVideo, 0, 0, canvas.width, canvas.height);
+      canvas.toBlob((blob) => {
+        const file = new File([blob], "scanned_plant.jpg", { type: "image/jpeg" });
+        const dt = new DataTransfer(); dt.items.add(file);
+        masterInput.files = dt.files;
+        stopWebcam(); updatePreview(file);
+      }, 'image/jpeg', 0.9);
+    });
+
+    cancelWebcamBtn.addEventListener('click', (e) => { e.preventDefault(); stopWebcam(); });
+
+    function stopWebcam() {
+      if (webcamStream) { webcamStream.getTracks().forEach(track => track.stop()); webcamStream = null; }
+      webcamContainer.style.display = 'none'; uploadBox.style.display = 'block';
+    }
+
+    libraryBtn.addEventListener('click', (e) => { e.preventDefault(); masterInput.click(); });
+    masterInput.addEventListener('change', e => { if (e.target.files.length > 0) updatePreview(e.target.files[0]); });
+
+    uploadBox.addEventListener('dragover', (e) => { e.preventDefault(); uploadBox.style.borderColor = "var(--primary)"; uploadBox.style.background = "rgba(209, 250, 229, 0.7)"; });
+    uploadBox.addEventListener('dragleave', (e) => { e.preventDefault(); uploadBox.style.borderColor = "rgba(5, 150, 105, 0.4)"; uploadBox.style.background = "rgba(255, 255, 255, 0.6)"; });
+    uploadBox.addEventListener('drop', (e) => { e.preventDefault(); if (e.dataTransfer.files.length > 0) { masterInput.files = e.dataTransfer.files; updatePreview(e.dataTransfer.files[0]); } });
+
+    document.getElementById('detectForm').addEventListener('submit', () => {
+      document.getElementById('loader').style.display = 'flex';
+      sessionStorage.setItem('cropai_city', document.getElementById('city').value);
+    });
+  </script>
+</body>
+</html>

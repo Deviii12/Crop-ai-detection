@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disease Knowledge Base | CropCare</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #059669; --primary-light: #10b981; --primary-dark: #047857;
+      --card-bg: rgba(255, 255, 255, 0.85);
+      --text-main: #0f172a; --text-muted: #475569;
+      --border-color: rgba(255, 255, 255, 0.6); 
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    body { 
+      font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; padding: 0; 
+      background-image: 
+        linear-gradient(to bottom, rgba(248, 250, 252, 0.85), rgba(226, 241, 235, 0.85)), 
+        url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover; background-position: center; background-attachment: fixed;
+      color: var(--text-main); min-height: 100vh;
+    }
+    
+    /* Navigation */
+    header { background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); padding: 1.2rem 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.02);}
+    header .logo { font-weight: 800; font-size: 1.3rem; color: var(--primary-dark);}
+    header a { font-size: 0.95rem; color: var(--text-main); text-decoration: none; font-weight: 700; transition: var(--transition); background: rgba(255,255,255,0.8); border: 1px solid rgba(0,0,0,0.1); padding: 0.5rem 1.2rem; border-radius: 999px; box-shadow: 0 2px 5px rgba(0,0,0,0.02);}
+    header a:hover { background: var(--text-main); color: white; transform: translateY(-1px);}
+
+    main { padding: 3rem 5%; max-width: 1400px; margin: auto;}
+    
+    .page-header { margin-bottom: 2.5rem; text-align: center; }
+    .page-header h1 { margin: 0 0 0.5rem; font-weight: 800; font-size: 2.5rem; color: var(--text-main); letter-spacing: -0.03em;}
+    .page-header p { color: var(--text-muted); margin: 0; font-size: 1.15rem; font-weight: 500;}
+
+    /* Modern Card Grid (Replaces the boring table) */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .kb-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 1.8rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    
+    .kb-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+      border-color: rgba(16, 185, 129, 0.4);
+    }
+
+    .kb-header {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      padding-bottom: 1rem;
+      border-bottom: 2px dashed rgba(0,0,0,0.08);
+      margin: 0;
+    }
+
+    .kb-section {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .kb-title {
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+    }
+
+    .kb-text {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #334155;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .kb-text b {
+      color: var(--text-main);
+      font-weight: 800;
+      background: rgba(16, 185, 129, 0.15);
+      padding: 0 4px;
+      border-radius: 4px;
+    }
+
+    @media(max-width: 600px) {
+      .grid-container { grid-template-columns: 1fr; }
+      .page-header h1 { font-size: 2rem; }
+      .kb-card { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">🌿 Knowledge Base</div>
+    <a href="/">&larr; Scan Plant</a>
+  </header>
+  
+  <main>
+    <div class="page-header">
+      <h1>Disease & Treatment Hub</h1>
+      <p>Browse highly comprehensive, scientifically backed care protocols.</p>
+    </div>
+
+    <div class="grid-container">
+      <!-- The |safe filter below allows our bold tags <b> from Python to render as styled text! -->
+      {% for d, org, chem, prev in rows %}
+      <div class="kb-card">
+        <h3 class="kb-header">{{ d|safe }}</h3>
+        
+        <div class="kb-section">
+          <div class="kb-title">🌱 Organic Protocol</div>
+          <p class="kb-text">{{ org|safe }}</p>
+        </div>
+        
+        <div class="kb-section">
+          <div class="kb-title">🧪 Botanical / Chemical</div>
+          <p class="kb-text">{{ chem|safe }}</p>
+        </div>
+        
+        <div class="kb-section">
+          <div class="kb-title">🛡️ Core Prevention</div>
+          <p class="kb-text">{{ prev|safe }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    
+  </main>
+</body>
+</html>

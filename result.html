@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌿 CropCare - Detection Results</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #059669; --primary-light: #10b981; --primary-dark: #047857;
+      --card-bg: rgba(255, 255, 255, 0.88); /* Glass effect core */
+      --text-main: #0f172a; --text-muted: #475569;
+      --border-color: rgba(0,0,0,0.08); --radius: 18px;
+      --shadow: 0 10px 30px rgba(0,0,0,0.06);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    body { 
+      font-family: 'Plus Jakarta Sans', sans-serif; 
+      /* Same Background Theme */
+      background-image: 
+        linear-gradient(to bottom, rgba(248, 250, 252, 0.85), rgba(226, 241, 235, 0.85)), 
+        url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover; background-position: center; background-attachment: fixed;
+      color: var(--text-main); margin: 0; padding: 0; min-height: 100vh; display: flex; flex-direction: column; 
+    }
+    
+    header { background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); padding: 1.2rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.5); position: sticky; top: 0; z-index: 100;}
+    header .logo { font-weight: 800; font-size: 1.2rem; color: var(--primary-dark); display: flex; align-items: center; gap: 8px;}
+    header a { font-size: 0.95rem; color: var(--text-main); text-decoration: none; font-weight: 700; transition: var(--transition); background: rgba(255,255,255,0.8); border: 1px solid rgba(0,0,0,0.1); padding: 0.5rem 1.2rem; border-radius: 999px;}
+    header a:hover { background: var(--text-main); color: white; }
+    
+    main { padding: 2.5rem 1.5rem; max-width: 1000px; margin: 0 auto; flex: 1; width: 100%; box-sizing: border-box; animation: fadeIn 0.4s ease-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+    
+    .card { background: var(--card-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 2rem; border-radius: var(--radius); box-shadow: var(--shadow); margin-bottom: 2rem; border: 1px solid rgba(255,255,255,0.8); }
+    
+    h2 { margin-top: 0; font-size: 1.3rem; font-weight: 800; display: flex; align-items: center; gap: 8px; margin-bottom: 1.5rem; color: var(--primary-dark); }
+    h3 { margin: 1.5rem 0 0.8rem; color: var(--text-main); font-size: 1.1rem; font-weight: 800; border-bottom: 2px solid rgba(0,0,0,0.05); padding-bottom: 6px;}
+    
+    .img-fluid { width: 100%; max-width: 280px; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); display: block; margin: 0 auto; border: 3px solid white;}
+    
+    .badge { display: inline-block; padding: 0.6rem 1.4rem; background: #dcfce7; color: var(--primary-dark); border-radius: 999px; font-weight: 800; font-size: 1.3rem; margin-top: 0.5rem; border: 1px solid #86efac; box-shadow: 0 4px 10px rgba(5, 150, 105, 0.1); }
+    
+    .prediction { margin-bottom: 1.2rem; }
+    .prediction-label { display: flex; justify-content: space-between; margin-bottom: 0.4rem; font-size: 0.95rem; font-weight: 700; }
+    .bar { background: rgba(0,0,0,0.05); border-radius: 999px; overflow: hidden; height: 10px; }
+    .bar-fill { height: 100%; border-radius: 999px; background: #94a3b8; transition: width 1s cubic-bezier(0.4, 0, 0.2, 1); }
+    .bar-fill.highlight { background: linear-gradient(90deg, var(--primary-light), var(--primary)); }
+    
+    /* Modern Tabs Segments */
+    .tabs { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 2rem; background: rgba(0,0,0,0.03); padding: 6px; border-radius: 14px; }
+    .tabs button { flex: 1; min-width: 105px; padding: 0.8rem; border: none; border-radius: 10px; cursor: pointer; background: transparent; color: var(--text-muted); font-weight: 700; font-family: inherit; transition: var(--transition); font-size: 0.9rem; }
+    .tabs button:hover { color: var(--text-main); }
+    .tabs button.active { background: white; color: var(--primary-dark); box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .tab-content { display: none; animation: fadeIn 0.3s ease-out; }
+    
+    .points { list-style: none; padding-left: 0; }
+    .points li { position: relative; padding-left: 1.8rem; margin-bottom: 1rem; line-height: 1.6; color: #334155; font-size: 0.95rem;}
+    .points li::before { content: "✨"; position: absolute; left: 0; top: 2px; font-size: 0.9rem; }
+    
+    table.simple { width: 100%; border-collapse: separate; border-spacing: 0; overflow: hidden; border-radius: 12px; background: rgba(255,255,255,0.5); }
+    table.simple th, table.simple td { padding: 1.2rem 1rem; border-bottom: 1px solid rgba(0,0,0,0.05); vertical-align: top; text-align: left; }
+    table.simple th { font-weight: 800; font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px;}
+    table.simple tr:last-child td { border-bottom: none; }
+    table.simple tbody tr td { color: #334155; }
+    
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    @media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
+    
+    .pill { display: inline-block; padding: 0.3rem 0.8rem; border-radius: 999px; font-size: 0.8rem; font-weight: 800; }
+    
+    /* Weather Widget */
+    .wx-card { background: rgba(240, 253, 244, 0.75); border: 1px solid #bbf7d0; display: flex; flex-direction: column; gap: 10px; }
+    .wx-data { display: flex; flex-wrap: wrap; gap: 15px; background: white; padding: 1.2rem; border-radius: 14px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); margin-top:10px; border-left: 4px solid var(--primary-light);}
+    .wx-alert { padding: 1rem; border-radius: 12px; font-weight: 700; font-size: 0.95rem; display:flex; gap:10px; align-items:center; margin-top: 10px;}
+    .wx-okay { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+    .wx-warn { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
+
+    .btn-action { display: inline-block; background: var(--text-main); color: white; padding: 1rem 3rem; text-decoration: none; border-radius: 14px; font-weight: 800; font-size: 1.1rem; transition: var(--transition); box-shadow: 0 8px 20px rgba(0,0,0,0.15); border: none;}
+    .btn-action:hover { background: var(--primary); transform: translateY(-3px); }
+  </style>
+  <script>
+    function showTab(tab) {
+      document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
+      document.getElementById(tab).style.display = 'block';
+      document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active'));
+      document.getElementById(tab + "Btn").classList.add('active');
+    }
+    window.onload = () => showTab('organic');
+  </script>
+</head>
+<body>
+
+  <header>
+    <div class="logo">🌿 <span>Analysis Report</span></div>
+    <a href="/">&larr; Scan Another</a>
+  </header>
+
+  <main>
+    <div class="grid" style="margin-bottom: 24px;">
+      <div class="card" style="margin-bottom: 0; text-align:center;">
+        <h2 style="justify-content:center;">Scanned Subject</h2>
+        <img src="{{ url_for('static', filename='uploads/' + filename) }}" class="img-fluid" alt="Uploaded plant data">
+      </div>
+
+      <div class="card" style="margin-bottom: 0;">
+        <h2>Diagnostic Results</h2>
+        <div style="margin-bottom: 2rem; text-align: center;">
+          <div style="font-size:0.8rem; color:var(--text-muted); font-weight:800; text-transform:uppercase; letter-spacing:1px;">Primary Detection</div>
+          <div class="badge">{{ disease }}</div>
+        </div>
+
+        {% set max_prob = predictions|max(attribute=1) %}
+        {% for label, prob in predictions %}
+        <div class="prediction">
+          <div class="prediction-label">
+            <span style="color: {% if prob == max_prob[1] %}var(--text-main){% else %}var(--text-muted){% endif %}">{{ label }}</span>
+            <span>{{ prob|round(1) }}%</span>
+          </div>
+          <div class="bar">
+            <div class="bar-fill {% if prob == max_prob[1] %}highlight{% endif %}" style="width: {{ prob|round(2) }}%;"></div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% macro format_points(text) -%}
+      {% if text and text != 'No info' %}
+        {% set cleaned = text.replace('•', '\n•') %}
+        <ul class="points">
+        {% for line in cleaned.splitlines() if line.strip() %}
+          <li>{{ line.replace('•','').strip()|safe }}</li>
+        {% endfor %}
+        </ul>
+      {% else %}
+        <p style="color:var(--text-muted); font-style:italic;">Data unavailable for this metric.</p>
+      {% endif %}
+    {%- endmacro %}
+
+    <div class="card">
+      <div class="tabs">
+        <button id="organicBtn" onclick="showTab('organic')">🌱 Organic</button>
+        <button id="chemicalBtn" onclick="showTab('chemical')">🧪 Chemical</button>
+        <button id="preventionBtn" onclick="showTab('prevention')">🛡️ Prevent</button>
+        <button id="symptomsBtn" onclick="showTab('symptoms')">👀 Symptoms</button>
+        <button id="fertilizerBtn" onclick="showTab('fertilizer')">🌾 Fertilizer</button>
+      </div>
+
+      <div id="organic" class="tab-content">
+        <h3>Organic Care Protocol</h3>
+        {{ format_points(treatment.organic) }}
+        {% if treatment.organic_medicines %}
+        <h3>Suggested Ecosystem Products</h3>
+        <ul style="padding-left: 20px; font-size:0.95rem;">
+          {% for med in treatment.organic_medicines.replace(';', ',').split(',') %}
+            {% set parts = med.strip().split('(') %}
+            <li style="margin-bottom:8px;">
+              {% if parts|length > 1 %}
+                <a href="{{ parts[1][:-1] }}" target="_blank" rel="noopener" style="color:var(--primary-dark); font-weight:800; text-decoration:none;">{{ parts[0].strip() }} &rarr;</a>
+              {% else %}
+                <b>{{ med.strip() }}</b>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+
+      <div id="chemical" class="tab-content">
+        <h3>Chemical Care Protocol</h3>
+        {{ format_points(treatment.chemical) }}
+        {% if treatment.chemical_medicines %}
+        <h3>Commercial Products</h3>
+        <ul style="padding-left: 20px; font-size:0.95rem;">
+          {% for med in treatment.chemical_medicines.replace(';', ',').split(',') %}
+            {% set parts = med.strip().split('(') %}
+            <li style="margin-bottom:8px;">
+              {% if parts|length > 1 %}
+                <a href="{{ parts[1][:-1] }}" target="_blank" rel="noopener" style="color:var(--primary-dark); font-weight:800; text-decoration:none;">{{ parts[0].strip() }} &rarr;</a>
+              {% else %}
+                <b>{{ med.strip() }}</b>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+
+      <div id="prevention" class="tab-content">
+        <h3>Proactive Measures</h3>
+        {{ format_points(treatment.prevention) }}
+      </div>
+
+      <div id="symptoms" class="tab-content">
+        <h3>Visual Key Symptoms</h3>
+        {{ format_points(treatment.symptoms) }}
+      </div>
+
+      <div id="fertilizer" class="tab-content">
+        <h3>Soil & Fertilizer Guide</h3>
+        {{ format_points(treatment.fertilizer_guidelines) }}
+      </div>
+    </div>
+
+    {% if gradcam_filename %}
+    <div class="card" style="background:rgba(255,255,255,0.4); border:2px dashed var(--primary-light); box-shadow:none;">
+      <h2>Focus Map (AI Vision)</h2>
+      <p style="color:var(--text-muted); margin-bottom: 1.5rem; font-size:0.95rem;">Highlights the biological patterns the AI used to build its diagnosis.</p>
+      <div class="grid">
+        <div style="background:white; padding:1rem; border-radius:14px; text-align:center; box-shadow:var(--shadow);">
+          <h4 style="margin:0 0 1rem;">Original Render</h4>
+          <img src="{{ url_for('static', filename='uploads/' + filename) }}" width="100%" style="border-radius:8px; object-fit:cover;">
+        </div>
+        <div style="background:white; padding:1rem; border-radius:14px; text-align:center; box-shadow:var(--shadow);">
+          <h4 style="margin:0 0 1rem; color:var(--primary);">Thermal Heatmap</h4>
+          <img src="{{ url_for('static', filename='uploads/' + gradcam_filename) }}" width="100%" style="border-radius:8px; object-fit:cover;">
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    <div class="card">
+      <h2>Treatment Comparison</h2>
+      <div style="overflow-x: auto;">
+        <table class="simple">
+          <thead>
+            <tr>
+              <th>Criteria</th>
+              <th>🌱 Organic</th>
+              <th>🧪 Chemical</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>Cost Efficiency</b></td>
+              <td>Excellent <span style="color:gray">(Cheaper)</span></td>
+              <td>Low <span style="color:gray">(Higher cost)</span></td>
+            </tr>
+            <tr>
+              <td><b>Bio-Impact</b></td>
+              <td>Harmless to soil ecosystem</td>
+              <td>Residue risk; requires protective gear</td>
+            </tr>
+            <tr>
+              <td><b>When To Apply</b></td>
+              <td><span class="pill" style="background:#dcfce7; color:#166534;">Early Stage / Preventative</span></td>
+              <td><span class="pill" style="background:#fee2e2; color:#b91c1c;">Heavy / Critical Outbreak</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card wx-card">
+      <h2 id="wxHeading" style="margin:0;">🌦️ Environmental Context</h2>
+      <div id="wxStatus" style="color:var(--text-muted); font-weight:600; font-size:0.9rem;">Fetching local atmospheric data…</div>
+      <div id="wxNow" class="wx-data" style="display:none;"></div>
+      <div id="wxAdvice"></div>
+    </div>
+
+    <div style="text-align: center; margin: 3rem 0;">
+      <a href="/" class="btn-action">Scan Another Plant</a>
+    </div>
+
+  </main>
+
+  <script>
+    (function(){
+      // Simply retrieving saved city from session storage
+      const storageCity = sessionStorage.getItem('cropai_city') || 'Delhi';
+      const city = ("{{ city|default('', true)|e }}" || storageCity).trim();
+
+      const apiKey = "e2d34806bc2ef442218c4b0564187e73";
+      document.getElementById('wxHeading').innerHTML = `🌦️ Atmosphere in ${city}`;
+
+      async function run() {
+        try {
+          const r = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${apiKey}&units=metric`);
+          if (!r.ok) throw new Error();
+          const j = await r.json();
+
+          document.getElementById('wxNow').style.display = 'flex';
+          document.getElementById('wxNow').innerHTML = `
+            <div style="font-size:1.05rem;">🌡️ <b style="font-size:1.3rem;">${Math.round(j.main.temp)}°C</b></div>
+            <div style="font-size:1.05rem;">💧 Hum: <b>${j.main.humidity}%</b></div>
+            <div style="font-size:1.05rem;">🌬️ Wind: <b>${j.wind.speed} m/s</b></div>
+            <div style="text-transform:capitalize; font-size:1.05rem;">☁️ ${j.weather[0].description}</div>
+          `;
+          document.getElementById('wxStatus').style.display = 'none';
+
+          const tips =[];
+          if (j.main.humidity > 80) tips.push("ℹ️ High moisture deteced. Monitor for fungal outbreaks.");
+          if (j.main.temp > 35) tips.push("ℹ️ High heat detected. Maintain deep irrigation schedules.");
+          if (!tips.length) tips.push("✨ Current atmospheric conditions look excellent for growth.");
+          
+          document.getElementById('wxAdvice').innerHTML = `<div class="wx-alert ${tips.length > 1 || tips[0].includes('ℹ️') ? 'wx-warn' : 'wx-okay'}">${tips.join('<br>')}</div>`;
+        } catch(e) { document.getElementById('wxStatus').textContent = "Weather API sync unavailable."; }
+      }
+      run();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+disease_name,organic,chemical,prevention
+apple scab,"Sulfur sprays, neem oil","Fungicides: Myclobutanil, Captan","Prune branches, remove fallen leaves, plant resistant varieties"
+apple black rot,"Neem extract, compost tea","Fungicides: Captan, Thiophanate-methyl","Remove dead wood, proper pruning, avoid injuries"
+apple cedar apple rust,Sulfur applications,"Fungicides: Myclobutanil, Triadimefon","Remove nearby cedar trees, plant resistant varieties"
+apple healthy,"Maintain soil health, compost",No treatment needed,Regular monitoring and care
+blueberry healthy,"Compost tea, neem oil",No treatment needed,"Balanced fertilization, pruning"
+cherry powdery mildew,"Milk spray, neem oil","Fungicides: Sulfur, Myclobutanil","Prune dense branches, improve air circulation"
+cherry healthy,Organic compost,No treatment needed,Proper pruning and spacing
+corn cercospora leaf spot,"Neem oil, garlic spray","Fungicides: Azoxystrobin, Propiconazole","Crop rotation, use resistant varieties"
+corn common rust,Sulfur dusting,"Fungicides: Propiconazole, Tebuconazole","Plant resistant hybrids, avoid overhead irrigation"
+corn northern leaf blight,"Neem extract, compost tea","Fungicides: Mancozeb, Azoxystrobin","Use resistant seeds, crop rotation"
+corn healthy,"Vermicompost, neem cake",No treatment needed,"Proper spacing, irrigation management"
+grape black rot,"Neem oil, garlic spray","Fungicides: Captan, Mancozeb","Remove mummified berries, prune infected vines"
+grape esca,"Compost tea, neem extract",Fungicides: Carbendazim (limited),"Remove infected wood, improve soil health"
+grape leaf blight,"Neem oil, baking soda spray","Fungicides: Mancozeb, Chlorothalonil","Prune leaves, avoid overhead irrigation"
+grape healthy,Organic compost,No treatment needed,Regular care and training
+orange citrus greening,"Neem oil, balanced nutrition",No curative chemical (manage psyllid vector),"Control psyllid insects, remove infected trees"
+peach bacterial spot,"Neem oil, compost tea","Fungicides: Copper hydroxide, Oxytetracycline","Plant resistant varieties, avoid overhead watering"
+peach healthy,Organic compost,No treatment needed,"Proper irrigation, pruning"
+pepper bell bacterial spot,"Neem oil, compost tea","Copper oxychloride, Mancozeb","Use certified seeds, avoid overhead irrigation"
+pepper bell healthy,Organic fertilizer,No treatment needed,"Proper spacing, crop rotation"
+potato early blight,"Garlic spray, neem oil","Fungicides: Chlorothalonil, Azoxystrobin","Crop rotation, remove debris, avoid overcrowding"
+potato late blight,"Neem oil, baking soda spray","Fungicides: Mancozeb, Metalaxyl","Use certified seeds, avoid leaf wetness"
+potato healthy,"Vermicompost, neem cake",No treatment needed,"Good field sanitation, balanced fertilization"
+raspberry healthy,Organic compost,No treatment needed,Regular care and pruning
+soybean healthy,Neem cake fertilizer,No treatment needed,"Proper irrigation, pest management"
+squash powdery mildew,"Milk spray, neem oil","Fungicides: Sulfur, Myclobutanil","Improve airflow, avoid overhead irrigation"
+strawberry leaf scorch,"Neem extract, compost tea","Fungicides: Captan, Chlorothalonil","Remove infected leaves, plant resistant cultivars"
+strawberry healthy,Organic compost,No treatment needed,Proper mulching and irrigation
+tomato bacterial spot,"Neem oil, garlic spray","Fungicides: Copper hydroxide, Streptomycin","Use resistant varieties, avoid wetting leaves"
+tomato early blight,"Compost tea, neem extract","Fungicides: Chlorothalonil, Mancozeb","Crop rotation, remove infected debris"
+tomato late blight,"Neem oil, baking soda spray","Fungicides: Mancozeb, Metalaxyl","Plant resistant varieties, avoid leaf wetness"
+tomato leaf mold,Garlic extract spray,"Fungicides: Chlorothalonil, Mancozeb","Maintain airflow, avoid excess humidity"
+tomato septoria leaf spot,"Neem oil, compost tea","Fungicides: Chlorothalonil, Mancozeb","Remove infected leaves, crop rotation"
+tomato spider mites,"Neem oil, horticultural oil","Miticides: Abamectin, Bifenthrin","Avoid water stress, encourage natural predators"
+tomato target spot,"Garlic spray, neem oil","Fungicides: Chlorothalonil, Azoxystrobin","Proper spacing, remove infected leaves"
+tomato yellow leaf curl virus,Neem oil (vector control),No chemical cure (manage whiteflies),"Control whiteflies, use resistant varieties"
+tomato mosaic virus,"Neem extract, compost tea",No chemical cure (manage spread),"Remove infected plants, sanitize tools"
+tomato healthy,Organic compost,No treatment needed,Good crop care and monitoring

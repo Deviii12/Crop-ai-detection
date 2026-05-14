@@ -480,6 +480,56 @@ def download_report():
     as_of = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
     return send_file(str(report_path), as_attachment=True, download_name=f"CropAI_Report_{as_of}.pdf")
 
+@app.route('/treatments')
+def treatments():
+    # High-quality agricultural data tailored for a modern knowledge base
+    crop_knowledge =[
+        (
+            "🍅 Tomato Late Blight",
+            "Apply <b>Neem Oil (2%)</b> mixed with soft soap. Use <b>Bacillus subtilis</b> bio-fungicides every 7 days.",
+            "Spray <b>Mancozeb 75% WP</b> (2g/L) or Copper Oxychloride immediately at the first sign of leaf lesions.",
+            "Maintain <b>2ft+ spacing</b> for airflow. Avoid overhead watering. Prune bottom leaves touching the soil."
+        ),
+        (
+            "🌾 Rice Blast",
+            "Apply <b>Silica-rich organic ash</b> to fortify stalk cell walls. Introduce <b>Trichoderma</b> to the soil.",
+            "Application of <b>Tricyclazole 75% WP</b> or Propiconazole 25% EC during the tillering and heading stages.",
+            "Destroy all infested stubble post-harvest. Avoid excessive localized Nitrogen application. Flood fields adequately."
+        ),
+        (
+            "🍋 Citrus Canker",
+            "Spray <b>Copper hydroxide</b> every 3 weeks during flush growth. Use strictly sanitized pruning tools.",
+            "Apply <b>Streptomycin sulfate</b> (where legally permitted) mixed with a standard copper-based bactericide.",
+            "Control Leaf Miner insects as they spread the bacteria. Plant natural <b>windbreaks</b> around the orchard."
+        ),
+        (
+            "🍃 Powdery Mildew (General)",
+            "Spray <b>Potassium bicarbonate</b> or a <b>Milk-water solution (1:9)</b>. Apply Sulfur dust in cool weather.",
+            "Rotate <b>Myclobutanil</b> or <b>Azoxystrobin</b>-based fungicides applied instantly at the first white spots.",
+            "Plant in <b>full sun</b>. Perform rigorous canopy thinning and pruning to dramatically increase wind transpiration."
+        ),
+        (
+            "🥔 Potato Early Blight",
+            "Consistent use of <b>Copper soap sprays</b>. Apply a very thick layer of organic mulch to cover soil spores.",
+            "Utilize a rotation of <b>Chlorothalonil</b> and <b>Boscalid</b> to prevent the rapid onset of fungal resistance.",
+            "Enforce a strict <b>3-year crop rotation</b> (strictly avoiding other nightshades like tomatoes and eggplants)."
+        ),
+        (
+            "🌶️ Chilli Leaf Curl Virus",
+            "Deploy <b>Yellow sticky traps</b>. Spray heavy <b>Neem formulation</b> to eradicate the whitefly vector.",
+            "Apply systemic insecticides like <b>Imidacloprid 17.8% SL</b> to kill sap-sucking insects transmitting the virus.",
+            "Uproot and burn infected plants instantly. Grow a perimeter barrier crop (like tall maize) around the chilli."
+        ),
+        (
+            "🐛 Cotton Bollworm",
+            "Release natural predators like <b>Trichogramma wasps</b>. Spray <b>Beauveria bassiana</b> biopesticides.",
+            "Utilize <b>Spinosad</b> or <b>Chlorantraniliprole</b> strictly observing economic threshold levels (ETL).",
+            "Plant trap crops like Marigold. Deep summer ploughing to expose hibernating pupae to extreme heat and birds."
+        )
+    ]
+    
+    return render_template('treatments.html', rows=crop_knowledge)
+
 @app.route("/community", methods=["GET", "POST"])
 def community():
     ensure_db()
